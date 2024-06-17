@@ -1,10 +1,10 @@
 ul {
     list-style: none;
   }
-  svg {
+  #sideSvg {
     margin-right: 5px;
   }
-  img {
+  #imgStart {
     margin-right: 5px;
     border-radius: 20%;
   }
@@ -12,6 +12,7 @@ ul {
     border-radius: 20%  solid 1px;
     background-color: grey;
     color: black;
+    margin-right: 5px;
   }
 
   .sidebar .card-body {
@@ -42,7 +43,7 @@ ul {
  
                
   .divScroll{
-    Width:1px;
+    
   
   overflow-y:scroll;
   }
