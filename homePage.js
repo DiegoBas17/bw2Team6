@@ -9,7 +9,7 @@ function randomIdAnnuncio() {
 }
 /* funzione per aggiornare l'annuncio */
 function aggiornamentoAnnuncio(album) {
-  const albumImage = document.querySelector(".heroAnnuncio img");
+  const albumImage = document.getElementById("albumImage");
   const albumTitle = document.getElementById("titoloAnnuncio");
   const albumArtist = document.getElementById("autoreAnnuncio");
   const albumPromotion = document.getElementById("testoPromozionaleAnnuncio");
@@ -36,7 +36,7 @@ function idRandomAnnunciForFetch() {
       if (resp.ok) {
         return resp.json();
       } else {
-        throw `Errore ${resp.status} : errore nella creazione del prodotto`;
+        throw `Errore ${resp.status} : errore nella creazione dell'annuncio`;
       }
     })
     .then((objAlbum) => {
