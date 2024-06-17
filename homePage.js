@@ -7,6 +7,22 @@ function randomIdAnnuncio() {
   const randomIndex = Math.floor(Math.random() * albumAnnunci.length);
   return albumAnnunci[randomIndex];
 }
+/* funzione per aggiornare l'annuncio */
+function aggiornamentoAnnuncio(album) {
+  const albumImage = document.querySelector(".heroAnnuncio img");
+  const albumTitle = document.getElementById("titoloAnnuncio");
+  const albumArtist = document.getElementById("autoreAnnuncio");
+  const albumPromotion = document.getElementById("testoPromozionaleAnnuncio");
+
+  albumImage.src = album.cover_medium;
+  albumImage.alt = album.title;
+
+  albumTitle.innerText = album.title;
+
+  albumArtist.innerText = album.artist.name;
+
+  albumPromotion.innerText = `Ascolta il nuovo album di ${album.artist.name}`;
+}
 function idRandomAnnunciForFetch() {
   const id = randomIdAnnuncio();
 
@@ -26,6 +42,7 @@ function idRandomAnnunciForFetch() {
     .then((objAlbum) => {
       console.log(objAlbum);
       /* continuo con cambiare la sezione annuncio */
+      aggiornamentoAnnuncio(objAlbum);
     })
     .catch((err) => alert(err));
 }
