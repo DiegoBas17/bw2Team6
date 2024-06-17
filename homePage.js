@@ -1,5 +1,7 @@
 /* creo un array fittizio per generare un album random al caricamento della pagina */
-const albumAnnunci = [594581752, 228423362, 513551092, 382624, 393303017, 551434412];
+const albumAnnunci = [
+  594581752, 228423362, 513551092, 382624, 393303017, 551434412,
+];
 /* funzione per ottenere un index random per usarlo nell'array */
 function randomIdAnnuncio() {
   const randomIndex = Math.floor(Math.random() * albumAnnunci.length);
@@ -11,14 +13,10 @@ function aggiornamentoAnnuncio(album) {
   const albumTitle = document.getElementById("titoloAnnuncio");
   const albumArtist = document.getElementById("autoreAnnuncio");
   const albumPromotion = document.getElementById("testoPromozionaleAnnuncio");
-
   albumImage.src = album.cover_medium;
   albumImage.alt = album.title;
-
   albumTitle.innerText = album.title;
-
   albumArtist.innerText = album.artist.name;
-
   albumPromotion.innerText = `Ascolta il nuovo album di ${album.artist.name}`;
 }
 function idRandomAnnunciForFetch() {
@@ -44,5 +42,21 @@ function idRandomAnnunciForFetch() {
     })
     .catch((err) => alert(err));
 }
-
+/* sezione per la parte playlist */
+fetch("https://deezerdevs-deezer.p.rapidapi.com/playlist/8080", {
+  headers: {
+    "x-rapidapi-key": "488a8ebce0msh914112a61b3a6a1p19c0e4jsn3acc13a47a88",
+    "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
+  },
+})
+  .then((resp) => {
+    if (resp.ok) {
+      return resp.json();
+    } else {
+      throw `Errore ${resp.status} : errore nella creazione dell'annuncio`;
+    }
+  })
+  .then((objAlbum) => {
+    console.log(objAlbum);
+  });
 window.addEventListener("DOMContentLoaded", idRandomAnnunciForFetch);
