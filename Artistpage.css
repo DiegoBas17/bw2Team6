@@ -106,8 +106,10 @@ color: #ffffff;
 .artist-content .card img {
 border-radius: 10px;
 }
-.container-img{
-background-image:url(https://images.unsplash.com/photo-1587967875804-0528d12cf8f8?ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=80);
+#contenitoreImgArtist {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 .contens-inside{
 margin-top: 35%;
