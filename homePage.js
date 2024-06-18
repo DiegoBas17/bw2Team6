@@ -57,7 +57,7 @@ const buttonPlayAnnuncioHomePage = document.getElementById(
   "buttonPlayAnnuncioHomePage"
 );
 buttonPlayAnnuncioHomePage.addEventListener("click", () => {
-  window.location.assign(`./Albumpage.html?id=${currentRandomId}`);
+  window.location.assign(`./Albumpage.html?albumId=${currentRandomId}`);
 });
 /* sezione per la parte playlist */
 const playlistArray = [25, 50, 90, 2400, 8080, 2465];
