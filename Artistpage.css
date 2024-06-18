@@ -1,67 +1,145 @@
 ul {
-    list-style: none;
-  }
-  svg {
-    margin-right: 5px;
-  }
-  img {
-    margin-right: 5px;
-    border-radius: 20%;
-  }
-  #firstSvg {
-    border-radius: 20%  solid 1px;
-    background-color: grey;
-    color: black;
-  }
+  list-style: none;
+}
+#sideSvg {
+  margin-right: 5px;
+}
+#imgStart {
+  margin-right: 5px;
+  border-radius: 20%;
+}
+#firstSvg {
+  border-radius: 20%  solid 1px;
+  background-color: grey;
+  color: black;
+  margin-right: 5px;
+}
 
-  .sidebar .card-body {
-    display: flex;
-    align-items: center;
+.sidebar .card-body {
+  display: flex;
+  align-items: center;
 
-    color: grey;
-  }
-  .sidebar .card-body img {
-    border-radius: 50%;
-    width: 48px;
-    height: 48px;
-    margin-right: 1rem;
-    margin-bottom: 50px;
-  }
+  color: grey;
+}
+.sidebar .card-body img {
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  margin-right: 1rem;
+  margin-bottom: 50px;
+}
 
-  .sidebar .card-body .time {
-    margin-left: 55px;
-    font-size: 0.875rem;
-    color: #b3b3b3;
-  }
-  #smallTime {
-    margin-left: 100px;
-  }
-  #arrow {
-    margin-left: 185px;
-  }
- 
-               
-  .divScroll{
-    Width:1px;
+.sidebar .card-body .time {
+  margin-left: 55px;
+  font-size: 0.875rem;
+  color: #b3b3b3;
+}
+#smallTime {
+  margin-left: 100px;
+}
+
+
+             
+.divScroll{
   
-  overflow-y:scroll;
-  }
-  #style-1::-webkit-scrollbar-track
+
+overflow-y:scroll;
+}
+#style-1::-webkit-scrollbar-track
 {
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-  border-radius: 10px;
-  background-color: black;
+-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+border-radius: 10px;
+background-color: black;
+
 }
 
 #style-1::-webkit-scrollbar
 {
-  width: 12px;
-  background-color: black;
+  
+width: 12px;
+background-color: black;
 }
 
 #style-1::-webkit-scrollbar-thumb
 {
-  border-radius: 10px;
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-  background-color: #555;
+border-radius: 10px;
+-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+background-color: #555;
+
+}
+.card-body {
+padding: 10px;
+}
+
+.artist-page {
+padding: 20px;
+}
+
+.artist-header {
+margin-bottom: 20px;
+}
+
+.artist-image {
+width: 150px;
+height: 150px;
+border-radius: 50%;
+}
+
+.artist-info {
+max-width: 500px;
+}
+
+.artist-content {
+padding: 20px 0;
+}
+
+.artist-content .card {
+background-color: #181818;
+border: none;
+}
+
+.artist-content .card-title,
+.artist-content .card-text {
+color: #ffffff;
+}
+
+.artist-content .card img {
+border-radius: 10px;
+}
+.container-img{
+background-image:url(https://images.unsplash.com/photo-1587967875804-0528d12cf8f8?ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=80);
+}
+.contens-inside{
+margin-top: 35%;
+}
+#braniLikes{
+border-radius: 50%;
+}
+.divScroll {
+  width: 100%;
+  height: 900px;
+  overflow-y: auto; 
+  overflow-x: hidden; 
+}
+#style-2::-webkit-scrollbar-track
+{
+-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+border-radius: 10px;
+background-color: transparent;
+
+}
+
+#style-2::-webkit-scrollbar
+{
+  
+width: 12px;
+background-color: transparent;
+}
+
+#style-2::-webkit-scrollbar-thumb
+{
+border-radius: 10px;
+-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+background-color: #555;
+
 }
