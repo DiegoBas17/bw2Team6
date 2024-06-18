@@ -1,8 +1,7 @@
 const params = new URLSearchParams(window.location.search);
 const albumId = params.get("albumId");
 
-const URL =
-  "https://striveschool-api.herokuapp.com/api/deezer/album/" + albumId;
+const URL = "https://striveschool-api.herokuapp.com/api/deezer/album/" + albumId;
 
 function convertitoreDurationASecondi(duration) {
   const minuti = Math.floor(duration / 60);
@@ -65,7 +64,7 @@ fetch(URL, {
       row.classList.add("row", "d-flex", "align-items-center");
 
       const col1 = document.createElement("div");
-      col1.classList.add("col-1");
+      col1.classList.add("col-1", "d-flex", "justify-content-end");
 
       const songNumber = document.createElement("p");
       songNumber.innerText = i;
