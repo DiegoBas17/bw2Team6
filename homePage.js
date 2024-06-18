@@ -2,6 +2,7 @@
 const albumAnnunci = [
   594581752, 228423362, 513551092, 382624, 393303017, 551434412,
 ];
+let currentArtistId = 0;
 /* funzione per ottenere un index random per usarlo nell'array */
 function randomIdAnnuncio() {
   const randomIndex = Math.floor(Math.random() * albumAnnunci.length);
@@ -19,6 +20,7 @@ function aggiornamentoAnnuncio(album) {
   albumTitle.innerText = album.title;
   albumArtist.innerText = album.artist.name;
   albumPromotion.innerText = `Ascolta il nuovo album di ${album.artist.name}`;
+  currentArtistId = album.artist.id;
 }
 let currentRandomId = 0;
 
@@ -49,7 +51,7 @@ function idRandomAnnunciForFetch() {
 /* evento click dell'annuncio (pagina artist) */
 albumArtist.style.cursor = "pointer";
 albumArtist.addEventListener("click", () => {
-  window.location.assign(`./Artistpage.html?id=${currentRandomId}`);
+  window.location.assign(`./Artistpage.html?id=${currentArtistId}`);
 });
 const buttonPlayAnnuncioHomePage = document.getElementById(
   "buttonPlayAnnuncioHomePage"
