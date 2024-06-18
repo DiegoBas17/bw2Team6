@@ -72,3 +72,12 @@ ul {
 #colonnaCentraleHomePage {
   background: linear-gradient(195deg, rgba(32,32,32,1) 45%, rgba(0,0,0,1) 96%);
 }
+
+.card:hover {
+  transform: scale(1.05);
+  
+}
+.card-hover:hover {
+  transform: scale(1.05); 
+ 
+}

@@ -7,11 +7,12 @@ function randomIdAnnuncio() {
   const randomIndex = Math.floor(Math.random() * albumAnnunci.length);
   return albumAnnunci[randomIndex];
 }
+const albumArtist = document.getElementById("autoreAnnuncio");
 /* funzione per aggiornare l'annuncio */
 function aggiornamentoAnnuncio(album) {
   const albumImage = document.getElementById("albumImage");
   const albumTitle = document.getElementById("titoloAnnuncio");
-  const albumArtist = document.getElementById("autoreAnnuncio");
+
   const albumPromotion = document.getElementById("testoPromozionaleAnnuncio");
   albumImage.src = album.cover_medium;
   albumImage.alt = album.title;
@@ -19,8 +20,11 @@ function aggiornamentoAnnuncio(album) {
   albumArtist.innerText = album.artist.name;
   albumPromotion.innerText = `Ascolta il nuovo album di ${album.artist.name}`;
 }
+let currentRandomId = 0;
+
 function idRandomAnnunciForFetch() {
   const id = randomIdAnnuncio();
+  currentRandomId = id;
 
   fetch(`https://striveschool-api.herokuapp.com/api/deezer/album/${id}`, {
     headers: {
@@ -42,6 +46,11 @@ function idRandomAnnunciForFetch() {
     })
     .catch((err) => alert(err));
 }
+/* evento play dell'annuncio (pagina artist) */
+albumArtist.style.cursor = "pointer";
+albumArtist.addEventListener("click", () => {
+  window.location.assign(`./Artistpage.html?id=${currentRandomId}`);
+});
 /* sezione per la parte playlist */
 const playlistArray = [25, 50, 90, 2400, 8080, 2465];
 const playlistContainer = document.getElementById("playlistContainer");
@@ -62,7 +71,11 @@ playlistArray.forEach((id) => {
     .then((objPlaylist) => {
       console.log(objPlaylist);
       const playlistCard = document.createElement("div");
-      playlistCard.classList.add("col-4", "bg-dark");
+      playlistCard.classList.add("col-4", "bg-dark", "card-hover");
+      playlistCard.style.cursor = "pointer";
+      playlistCard.addEventListener("click", () => {
+        console.log(`Immagine cliccata: ${objPlaylist.title}`);
+      });
 
       const img = document.createElement("img");
       img.src = objPlaylist.picture_medium;
@@ -100,25 +113,32 @@ playlistArray2.forEach((id) => {
     })
     .then((objPlaylist) => {
       const card = document.createElement("div");
-      card.classList.add("card", "border-0");
+      card.classList.add("card", "border-0", "card-hover");
       card.style.width = "18%";
 
       const img = document.createElement("img");
       img.src = objPlaylist.picture_medium;
       img.alt = objPlaylist.title;
       img.classList.add("card-img-top");
+      img.style.cursor = "pointer";
+      img.addEventListener("click", () => {
+        console.log(`Immagine cliccata: ${objPlaylist.title}`);
+      });
 
       const cardBody = document.createElement("div");
       cardBody.classList.add("card-body");
 
       const cardTitle = document.createElement("h5");
       cardTitle.classList.add("card-title");
-      cardTitle.textContent = objPlaylist.title;
+      cardTitle.innerHTML = objPlaylist.title;
+      cardTitle.style.cursor = "pointer";
+      cardTitle.addEventListener("click", () => {
+        console.log(`Titolo cliccato: ${objPlaylist.title}`);
+      });
 
       const cardText = document.createElement("p");
       cardText.classList.add("card-text");
-      cardText.textContent =
-        "Some quick example text to build on the card title and make up the bulk of the card's content.";
+      cardText.innerHTML = "Le playlist del momento";
 
       cardBody.appendChild(cardTitle);
       cardBody.appendChild(cardText);
