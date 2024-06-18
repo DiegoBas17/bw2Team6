@@ -16,7 +16,7 @@ function formatTime(number) {
   return str.slice(0, 2) + ":" + str.slice(2);
 }
 
-fetch(` https://striveschool-api.herokuapp.com/api/deezer/album/75621062`, {
+fetch(URL, {
   headers: {
     "x-rapidapi-key": "488a8ebce0msh914112a61b3a6a1p19c0e4jsn3acc13a47a88",
     "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
