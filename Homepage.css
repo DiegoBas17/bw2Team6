@@ -81,7 +81,7 @@ svg {
 }
 .divScroll {
   width: 100%;
-  height: 900px;
+  height: 100vh;
   overflow-y: auto; /* Scorrimento solo verticale */
   overflow-x: hidden; /* Nascondi lo scorrimento orizzontale */
 }

@@ -1,6 +1,6 @@
 /* creo un array fittizio per generare un album random al caricamento della pagina */
 const albumAnnunci = [
-  594581752, 228423362, 513551092, 382624, 393303017, 551434412,
+  594581752, 228423362, 513551092, 382624, 551434412, 299319, 12047958,
 ];
 let currentArtistId = 0;
 /* funzione per ottenere un index random per usarlo nell'array */
@@ -60,7 +60,7 @@ buttonPlayAnnuncioHomePage.addEventListener("click", () => {
   window.location.assign(`./Albumpage.html?albumId=${currentRandomId}`);
 });
 /* sezione per la parte playlist */
-const playlistArray = [25, 50, 90, 2400, 8080, 2465];
+const playlistArray = [25, 50, 90, 2400, 8080, 2465]; /* tesoro */
 const playlistContainer = document.getElementById("playlistContainer");
 playlistArray.forEach((id) => {
   fetch(`https://deezerdevs-deezer.p.rapidapi.com/playlist/${id}`, {
