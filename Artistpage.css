@@ -119,7 +119,7 @@ border-radius: 50%;
 }
 .divScroll {
   width: 100%;
-  height: 900px;
+  height: 100vh;
   overflow-y: auto; 
   overflow-x: hidden; 
 }
