@@ -11,3 +11,15 @@
   align-items: center;
   padding: 10px;
 }
+
+aside svg {
+  margin-right: 5px;
+}
+
+footer img {
+  height: 58px;
+}
+
+#main-container {
+  height: 90vh;
+}
