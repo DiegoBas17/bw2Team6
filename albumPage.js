@@ -2,6 +2,20 @@ const params = new URLSearchParams(window.location.search);
 const albumId = params.get("albumId");
 
 const URL = "https://striveschool-api.herokuapp.com/api/deezer/album/" + albumId;
+
+function convertitoreDurationASecondi(duration) {
+  const minuti = Math.floor(duration / 60);
+  const secondi = duration % 60;
+  const tempo = minuti + ":" + (secondi < 10 ? "0" : "") + secondi;
+  return tempo;
+}
+
+function formatTime(number) {
+  //funzione che mi formatta il numero in minuti e secondi
+  let str = number.toString().padStart(4, "0"); // Assicurati che sia almeno di 4 cifre
+  return str.slice(0, 2) + ":" + str.slice(2);
+}
+
 fetch(` https://striveschool-api.herokuapp.com/api/deezer/album/75621062`, {
   headers: {
     "x-rapidapi-key": "488a8ebce0msh914112a61b3a6a1p19c0e4jsn3acc13a47a88",
@@ -38,7 +52,7 @@ fetch(` https://striveschool-api.herokuapp.com/api/deezer/album/75621062`, {
     numeroBrani.innerText = album.nb_tracks + " Brani";
 
     const durataAlbum = document.getElementById("DurataAlbum");
-    durataAlbum.innerText = album.duration;
+    durataAlbum.innerText = formatTime(album.duration);
 
     //ora devo generare le row che conterranno all'interno i brani presenti nell'album
 
@@ -66,12 +80,13 @@ fetch(` https://striveschool-api.herokuapp.com/api/deezer/album/75621062`, {
       const col3 = document.createElement("div");
       col3.classList.add("col-2", "d-flex", "justify-content-end");
       const riproduzioni = document.createElement("p");
-      riproduzioni.innerText = song.rank;
+      riproduzioni.innerText = song.rank.toLocaleString();
 
       const col4 = document.createElement("div");
       col4.classList.add("col-2", "d-flex", "justify-content-end");
       const durataCanzone = document.createElement("p");
-      durataCanzone.innerText = song.duration;
+
+      durataCanzone.innerText = convertitoreDurationASecondi(song.duration);
 
       col4.appendChild(durataCanzone);
       col3.appendChild(riproduzioni);
