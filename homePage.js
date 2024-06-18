@@ -46,10 +46,16 @@ function idRandomAnnunciForFetch() {
     })
     .catch((err) => alert(err));
 }
-/* evento play dell'annuncio (pagina artist) */
+/* evento click dell'annuncio (pagina artist) */
 albumArtist.style.cursor = "pointer";
 albumArtist.addEventListener("click", () => {
   window.location.assign(`./Artistpage.html?id=${currentRandomId}`);
+});
+const buttonPlayAnnuncioHomePage = document.getElementById(
+  "buttonPlayAnnuncioHomePage"
+);
+buttonPlayAnnuncioHomePage.addEventListener("click", () => {
+  window.location.assign(`./Albumpage.html?id=${currentRandomId}`);
 });
 /* sezione per la parte playlist */
 const playlistArray = [25, 50, 90, 2400, 8080, 2465];
