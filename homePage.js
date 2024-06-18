@@ -1,6 +1,6 @@
 /* creo un array fittizio per generare un album random al caricamento della pagina */
 const albumAnnunci = [
-  594581752, 228423362, 513551092, 382624, 393303017, 551434412,
+  594581752, 228423362, 513551092, 382624, 551434412, 299319, 12047958,
 ];
 let currentArtistId = 0;
 /* funzione per ottenere un index random per usarlo nell'array */
