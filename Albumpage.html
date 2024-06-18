@@ -279,25 +279,113 @@
             <div id="heroAnnuncio">
               <div class="row bg-black p-3 my-3">
                 <div class="col-3">
-                  <img src="./assets/imgs/main/image-1.jpg" alt="" class="w-100" id="albumImage" />
+                  <img id="coverAlbum" src="" alt="" class="w-100" id="albumImage" />
                 </div>
                 <div class="col-9">
                   <div class="d-flex justify-content-between">
                     <p>ALBUM</p>
-                    <a href="#" class="text-decoration-none text-secondary">Nascondi annuncio</a>
                   </div>
-                  <h1 id="titoloAnnuncio" class="mb-4">Mimmo di sera</h1>
+                  <h1 id="titoloAlbum" class="mb-4">Titolo Album</h1>
                   <div id="contenitoreInfoAlbum" class="d-flex align-items-end">
-                    <img id="immagineAutoreAlbum" src="./assets/imgs/search/image-12.jpg" class="rounded-circle me-2" />
-                    <span id="autoreAnnuncio" class="me-2">Mimmo</span>
-                    <span id="annoAlbum" class="me-2">2019</span>
-                    <span id="numeroBrani" class="me-2">13 brani,</span>
-                    <span id="DurataAlbum" class="me-2">42 min 33 secondi</span>
+                    <img id="immagineArtistaAlbum" src="" class="rounded-circle me-2" />
+                    <span id="nomeArtista" class="me-2 text-light">Nome Artista</span>
+                    <span id="annoAlbum" class="me-2"></span>
+                    <span id="numeroBrani" class="me-2">num brani</span>
+                    <span id="DurataAlbum" class="me-2 text-muted">durata</span>
                   </div>
                 </div>
               </div>
             </div>
-            <div id="sezioneBraniAlbum"></div>
+            <div id="sezioneBraniAlbum">
+              <div id="sezioneBottoni" class="d-flex align-items-center">
+                <button id="playButton" class="btn rounded-circle me-3">
+                  <svg
+                    data-encore-id="icon"
+                    role="img"
+                    aria-hidden="true"
+                    viewBox="0 0 24 24"
+                    class="Svg-sc-ytk21e-0 bneLcE"
+                    width="20px"
+                  >
+                    <path
+                      d="m7.05 3.606 13.49 7.788a.7.7 0 0 1 0 1.212L7.05 20.394A.7.7 0 0 1 6 19.788V4.212a.7.7 0 0 1 1.05-.606z"
+                    ></path>
+                  </svg>
+                </button>
+                <button id="likeButton" class="btn btn-transparent p-0 me-3">
+                  <svg
+                    data-encore-id="icon"
+                    role="img"
+                    aria-hidden="true"
+                    viewBox="0 0 24 24"
+                    class="Svg-sc-ytk21e-0 bneLcE"
+                    width="20px"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M5.21 1.57a6.757 6.757 0 0 1 6.708 1.545.124.124 0 0 0 .165 0 6.741 6.741 0 0 1 5.715-1.78l.004.001a6.802 6.802 0 0 1 5.571 5.376v.003a6.689 6.689 0 0 1-1.49 5.655l-7.954 9.48a2.518 2.518 0 0 1-3.857 0L2.12 12.37A6.683 6.683 0 0 1 .627 6.714 6.757 6.757 0 0 1 5.21 1.57zm3.12 1.803a4.757 4.757 0 0 0-5.74 3.725l-.001.002a4.684 4.684 0 0 0 1.049 3.969l.009.01 7.958 9.485a.518.518 0 0 0 .79 0l7.968-9.495a4.688 4.688 0 0 0 1.049-3.965 4.803 4.803 0 0 0-3.931-3.794 4.74 4.74 0 0 0-4.023 1.256l-.008.008a2.123 2.123 0 0 1-2.9 0l-.007-.007a4.757 4.757 0 0 0-2.214-1.194z"
+                    ></path>
+                  </svg>
+                </button>
+                <button id="downloadButton" class="btn btn-transparent p-0 me-3">
+                  <svg
+                    data-encore-id="icon"
+                    role="img"
+                    aria-hidden="true"
+                    viewBox="0 0 16 16"
+                    class="Svg-sc-ytk21e-0 dYnaPI"
+                    width="20px"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M4.995 8.745a.75.75 0 0 1 1.06 0L7.25 9.939V4a.75.75 0 0 1 1.5 0v5.94l1.195-1.195a.75.75 0 1 1 1.06 1.06L8 12.811l-.528-.528a.945.945 0 0 1-.005-.005L4.995 9.805a.75.75 0 0 1 0-1.06z"
+                    ></path>
+                    <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13z"></path>
+                  </svg>
+                </button>
+                <button id="bottoneAltro" class="btn btn-transparent p-0">
+                  <svg
+                    data-encore-id="icon"
+                    role="img"
+                    aria-hidden="true"
+                    viewBox="0 0 24 24"
+                    class="Svg-sc-ytk21e-0 cqasRA"
+                    width="20px"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M4.5 13.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm15 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm-7.5 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"
+                    ></path>
+                  </svg>
+                </button>
+              </div>
+              <!-- SEZIONE BRANI DELL'ALBUM -->
+              <div class="row gx-3">
+                <div class="col-8">
+                  <span>#</span>
+                  <span>TITOLO</span>
+                </div>
+                <div class="col-2">
+                  <p>RIPRODUZIONI</p>
+                </div>
+                <div class="col-2">
+                  <svg
+                    data-encore-id="icon"
+                    role="img"
+                    aria-hidden="true"
+                    viewBox="0 0 16 16"
+                    class="Svg-sc-ytk21e-0 dYnaPI"
+                    width="20px"
+                    fill="currentColor"
+                  >
+                    <path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z"></path>
+                    <path d="M8 3.25a.75.75 0 0 1 .75.75v3.25H11a.75.75 0 0 1 0 1.5H7.25V4A.75.75 0 0 1 8 3.25z"></path>
+                  </svg>
+                </div>
+                <hr />
+              </div>
+              <div id="contenitoreBrani"></div>
+            </div>
           </div>
         </main>
 
@@ -427,5 +515,6 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./albumPage.js"></script>
   </body>
 </html>
