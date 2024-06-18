@@ -39,4 +39,49 @@ fetch(` https://striveschool-api.herokuapp.com/api/deezer/album/75621062`, {
 
     const durataAlbum = document.getElementById("DurataAlbum");
     durataAlbum.innerText = album.duration;
+
+    //ora devo generare le row che conterranno all'interno i brani presenti nell'album
+
+    const braniContainer = document.getElementById("contenitoreBrani");
+    let i = 0;
+    album.tracks.data.forEach((song) => {
+      i++;
+      const row = document.createElement("div");
+      row.classList.add("row", "d-flex", "align-items-center");
+
+      const col1 = document.createElement("div");
+      col1.classList.add("col-1");
+
+      const songNumber = document.createElement("p");
+      songNumber.innerText = i;
+
+      const col2 = document.createElement("div");
+      col2.classList.add("col-7");
+      const nomeCanzone = document.createElement("p");
+      nomeCanzone.classList.add("mb-1", "text-light");
+      nomeCanzone.innerText = song.title;
+      const nomeArtista = document.createElement("p");
+      nomeArtista.innerText = song.artist.name;
+
+      const col3 = document.createElement("div");
+      col3.classList.add("col-2", "d-flex", "justify-content-end");
+      const riproduzioni = document.createElement("p");
+      riproduzioni.innerText = song.rank;
+
+      const col4 = document.createElement("div");
+      col4.classList.add("col-2", "d-flex", "justify-content-end");
+      const durataCanzone = document.createElement("p");
+      durataCanzone.innerText = song.duration;
+
+      col4.appendChild(durataCanzone);
+      col3.appendChild(riproduzioni);
+      col2.appendChild(nomeCanzone);
+      col2.appendChild(nomeArtista);
+      col1.appendChild(songNumber);
+      row.appendChild(col1);
+      row.appendChild(col2);
+      row.appendChild(col3);
+      row.appendChild(col4);
+      braniContainer.appendChild(row);
+    });
   });
