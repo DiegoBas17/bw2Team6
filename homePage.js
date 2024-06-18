@@ -60,7 +60,7 @@ buttonPlayAnnuncioHomePage.addEventListener("click", () => {
   window.location.assign(`./Albumpage.html?albumId=${currentRandomId}`);
 });
 /* sezione per la parte playlist */
-const playlistArray = [25, 50, 90, 2400, 8080, 2465];
+const playlistArray = [25, 50, 90, 2400, 8080, 2465]; /* tesoro */
 const playlistContainer = document.getElementById("playlistContainer");
 playlistArray.forEach((id) => {
   fetch(`https://deezerdevs-deezer.p.rapidapi.com/playlist/${id}`, {
