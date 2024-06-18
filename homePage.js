@@ -43,20 +43,90 @@ function idRandomAnnunciForFetch() {
     .catch((err) => alert(err));
 }
 /* sezione per la parte playlist */
-fetch("https://deezerdevs-deezer.p.rapidapi.com/playlist/8080", {
-  headers: {
-    "x-rapidapi-key": "488a8ebce0msh914112a61b3a6a1p19c0e4jsn3acc13a47a88",
-    "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
-  },
-})
-  .then((resp) => {
-    if (resp.ok) {
-      return resp.json();
-    } else {
-      throw `Errore ${resp.status} : errore nella creazione dell'annuncio`;
-    }
+const playlistArray = [25, 50, 90, 2400, 8080, 2465];
+const playlistContainer = document.getElementById("playlistContainer");
+playlistArray.forEach((id) => {
+  fetch(`https://deezerdevs-deezer.p.rapidapi.com/playlist/${id}`, {
+    headers: {
+      "x-rapidapi-key": "488a8ebce0msh914112a61b3a6a1p19c0e4jsn3acc13a47a88",
+      "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
+    },
   })
-  .then((objAlbum) => {
-    console.log(objAlbum);
-  });
+    .then((resp) => {
+      if (resp.ok) {
+        return resp.json();
+      } else {
+        throw `Errore ${resp.status} : errore nella creazione dell'annuncio`;
+      }
+    })
+    .then((objPlaylist) => {
+      console.log(objPlaylist);
+      const playlistCard = document.createElement("div");
+      playlistCard.classList.add("col-4", "bg-dark");
+
+      const img = document.createElement("img");
+      img.src = objPlaylist.picture_medium;
+      img.alt = objPlaylist.title;
+      img.classList.add("d-inline");
+      img.style.width = "80px";
+
+      const title = document.createElement("p");
+      title.innerHTML = objPlaylist.title;
+      title.classList.add("d-inline", "ms-2");
+
+      playlistCard.appendChild(img);
+      playlistCard.appendChild(title);
+      playlistContainer.appendChild(playlistCard);
+    })
+    .catch((err) => alert(err));
+});
+/* altro che ti piace */
+const playlistArray2 = [25, 50, 90, 2400, 8080];
+const playlistContainer2 = document.getElementById("cotenitoreCarte2");
+
+playlistArray2.forEach((id) => {
+  fetch(`https://deezerdevs-deezer.p.rapidapi.com/playlist/${id}`, {
+    headers: {
+      "x-rapidapi-key": "488a8ebce0msh914112a61b3a6a1p19c0e4jsn3acc13a47a88",
+      "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
+    },
+  })
+    .then((resp) => {
+      if (resp.ok) {
+        return resp.json();
+      } else {
+        throw `Errore ${resp.status} : errore nella creazione dell'annuncio`;
+      }
+    })
+    .then((objPlaylist) => {
+      const card = document.createElement("div");
+      card.classList.add("card", "border-0");
+      card.style.width = "18%";
+
+      const img = document.createElement("img");
+      img.src = objPlaylist.picture_medium;
+      img.alt = objPlaylist.title;
+      img.classList.add("card-img-top");
+
+      const cardBody = document.createElement("div");
+      cardBody.classList.add("card-body");
+
+      const cardTitle = document.createElement("h5");
+      cardTitle.classList.add("card-title");
+      cardTitle.textContent = objPlaylist.title;
+
+      const cardText = document.createElement("p");
+      cardText.classList.add("card-text");
+      cardText.textContent =
+        "Some quick example text to build on the card title and make up the bulk of the card's content.";
+
+      cardBody.appendChild(cardTitle);
+      cardBody.appendChild(cardText);
+      card.appendChild(img);
+      card.appendChild(cardBody);
+      playlistContainer2.appendChild(card);
+    })
+    .catch((err) => alert(err));
+});
+
 window.addEventListener("DOMContentLoaded", idRandomAnnunciForFetch);

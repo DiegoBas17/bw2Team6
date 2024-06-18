@@ -4,10 +4,10 @@ ul {
   svg {
     margin-right: 5px;
   }
-  img {
+  /* img {
     margin-right: 5px;
-    border-radius: 20%; /* dare un id per questo css, altrimenti intacca le altre img */
-  }
+    border-radius: 20%;
+  } */
   #firstSvg {
     border-radius: 20%  solid 1px;
     background-color: grey;
