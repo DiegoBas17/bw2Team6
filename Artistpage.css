@@ -231,3 +231,8 @@ footer img {
 #main-container {
   height: 90vh;
 }
+#btnFollowing{
+  border: solid 0.5px rgb(92, 92, 92);
+  opacity: 0.9;
+
+}

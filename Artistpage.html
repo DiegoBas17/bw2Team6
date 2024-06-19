@@ -22,7 +22,10 @@
               <a class="nav-link text-white" href="#">...</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white d-flex align-items-center" href="./homepage.html">
+              <a
+                class="nav-link text-white d-flex align-items-center"
+                href="./homepage.html"
+              >
                 <svg
                   data-encore-id="icon"
                   role="img"
@@ -379,60 +382,67 @@
               </div>
             </div>
             <!-- fine cover -->
-            <div class="container">
+            <div class="container mb-4">
               <div class="mb-4">
                 <p class="d-md-none ms-2" id="numeroFanArtist">
                   3.433.158 ascoltatori mensili
                 </p>
-                <div
-                  class="row-col col-12 d-flex align-items-center justify-content-between d-md-none"
-                >
-                  <button class="btn btn-outline-light ms-3 d-md-none">
-                    Seguiti
-                  </button>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="30"
-                    height="25"
-                    fill="currentColor"
-                    id="svgCrs"
-                    class="bi bi-three-dots-vertical ms-5 me-5 d-md-none"
-                    viewBox="0 0 16 16"
+                <div class="d-flex justify-content-between d-md-none">
+                  <div class="col-6 d-flex align-items-center">
+                    <button
+                      class="btn btn-outline-light ms-3"
+                      id="btnFollowing"
+                    >
+                      Seguiti
+                    </button>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="30"
+                      height="25"
+                      fill="currentColor"
+                      id="svgCrs"
+                      class="bi bi-three-dots-vertical ms-5 me-5"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"
+                      />
+                    </svg>
+                  </div>
+                  <div
+                    class="col-6 d-flex align-items-center justify-content-end"
                   >
-                    <path
-                      d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"
-                    />
-                  </svg>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="25"
-                    height="25"
-                    fill="currentColor"
-                    id="svgCrs"
-                    class="bi bi-shuffle d-md-none d-inline ms-5"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M0 3.5A.5.5 0 0 1 .5 3H1c2.202 0 3.827 1.24 4.874 2.418.49.552.865 1.102 1.126 1.532.26-.43.636-.98 1.126-1.532C9.173 4.24 10.798 3 13 3v1c-1.798 0-3.173 1.01-4.126 2.082A9.6 9.6 0 0 0 7.556 8a9.6 9.6 0 0 0 1.317 1.918C9.828 10.99 11.204 12 13 12v1c-2.202 0-3.827-1.24-4.874-2.418A10.6 10.6 0 0 1 7 9.05c-.26.43-.636.98-1.126 1.532C4.827 11.76 3.202 13 1 13H.5a.5.5 0 0 1 0-1H1c1.798 0 3.173-1.01 4.126-2.082A9.6 9.6 0 0 0 6.444 8a9.6 9.6 0 0 0-1.317-1.918C4.172 5.01 2.796 4 1 4H.5a.5.5 0 0 1-.5-.5"
-                    />
-                    <path
-                      d="M13 5.466V1.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192m0 9v-3.932a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192"
-                    />
-                  </svg>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="40"
-                    height="40"
-                    fill="green"
-                    class="bi bi-play-circle-fill ms-3"
-                    viewBox="0 0 16 16"
-                    id="svgCrs"
-                  >
-                    <path
-                      d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814z"
-                    />
-                  </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="25"
+                      height="25"
+                      fill="currentColor"
+                      id="svgCrs"
+                      class="bi bi-shuffle d-inline ms-5"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M0 3.5A.5.5 0 0 1 .5 3H1c2.202 0 3.827 1.24 4.874 2.418.49.552.865 1.102 1.126 1.532.26-.43.636-.98 1.126-1.532C9.173 4.24 10.798 3 13 3v1c-1.798 0-3.173 1.01-4.126 2.082A9.6 9.6 0 0 0 7.556 8a9.6 9.6 0 0 0 1.317 1.918C9.828 10.99 11.204 12 13 12v1c-2.202 0-3.827-1.24-4.874-2.418A10.6 10.6 0 0 1 7 9.05c-.26.43-.636.98-1.126 1.532C4.827 11.76 3.202 13 1 13H.5a.5.5 0 0 1 0-1H1c1.798 0 3.173-1.01 4.126-2.082A9.6 9.6 0 0 0 6.444 8a9.6 9.6 0 0 0-1.317-1.918C4.172 5.01 2.796 4 1 4H.5a.5.5 0 0 1-.5-.5"
+                      />
+                      <path
+                        d="M13 5.466V1.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192m0 9v-3.932a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192"
+                      />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="40"
+                      height="40"
+                      fill="green"
+                      class="bi bi-play-circle-fill ms-3"
+                      viewBox="0 0 16 16"
+                      id="svgCrs"
+                    >
+                      <path
+                        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814z"
+                      />
+                    </svg>
+                  </div>
                 </div>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -461,34 +471,33 @@
                   <div class="card bg-transparent border-0">
                     <div class="card-body">
                       <div class="text-white">
-                        <h7>
-                          <div class="position-relative d-inline-block">
-                            <img
-                              src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSxJ0GMCddXilsW_rsOtigoIH72frjo3UrumSmTgXUVgOCQskQl"
-                              alt="Charlie Hookham"
-                              width="50"
-                              height="50"
-                              id="braniLikes"
-                              class="position-relative"
-                            />
+                        <div class="position-relative d-inline-block">
+                          <img
+                            src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSxJ0GMCddXilsW_rsOtigoIH72frjo3UrumSmTgXUVgOCQskQl"
+                            alt="Charlie Hookham"
+                            width="50"
+                            height="50"
+                            id="braniLikes"
+                            class="position-relative"
+                          />
 
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="14"
-                              height="16"
-                              fill="green"
-                              id="svgCrs"
-                              style="bottom: 0; right: 0"
-                              class="bi bi-heart bf-success position-absolute"
-                              viewBox="0 0 16 16"
-                            >
-                              <path
-                                d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"
-                              />
-                            </svg>
-                          </div>
-                          <span class="ms-2">Brani che ti piacciono</span>
-                        </h7>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="14"
+                            height="16"
+                            fill="green"
+                            id="svgCrs"
+                            style="bottom: 0; right: 0"
+                            class="bi bi-heart bf-success position-absolute"
+                            viewBox="0 0 16 16"
+                          >
+                            <path
+                              d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"
+                            />
+                          </svg>
+                        </div>
+                        <span class="ms-2">Brani che ti piacciono</span>
+
                         <p class="text-secondary ms-5">
                           8 brani di Pinguini tattici nucleari
                         </p>
