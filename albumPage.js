@@ -34,7 +34,7 @@ fetch(URL, {
     console.log(album);
     //inserisco dati dell'album dinamicamente nel banner in alto
     const coverAlbum = document.getElementById("coverAlbum");
-    coverAlbum.src = album.cover;
+    coverAlbum.src = album.cover_medium;
 
     const titoloAlbum = document.getElementById("titoloAlbum");
     titoloAlbum.innerText = album.title;
