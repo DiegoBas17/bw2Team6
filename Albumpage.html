@@ -223,7 +223,7 @@
           <div class="divScroll" id="style-2">
             <div class="container">
               <div id="barraSuperiore">
-                <div class="d-flex justify-content-between">
+                <div class="d-none d-md-flex justify-content-between">
                   <div id="contenitoreBottoni">
                     <div id="contenitoreIconaFreccia" class="d-inline">
                       <svg
@@ -284,21 +284,36 @@
                 </div>
               </div>
               <div id="heroAnnuncio">
-                <div class="row bg-black p-3 my-3 flex-column flex-md-row">
-                  <div class="col-3 mx-auto mx-md-0">
-                    <img id="coverAlbum" src="" alt="" class="w-100" id="albumImage" />
+                <div class="row p-3 my-3 flex-column flex-md-row">
+                  <div class="col-1 d-md-none">
+                    <svg
+                      data-encore-id="icon"
+                      role="img"
+                      aria-hidden="true"
+                      viewBox="0 0 24 24"
+                      class="d-md-none Svg-sc-ytk21e-0 zsGU"
+                      fill="currentColor"
+                      width="20px"
+                    >
+                      <path
+                        d="M13.414 3.5a.999.999 0 0 0-1.707-.707l-9.207 9.2 9.207 9.202a1 1 0 1 0 1.414-1.413L6.335 13H20.5a1 1 0 0 0 0-2H6.322l6.799-6.794a.999.999 0 0 0 .293-.707z"
+                      ></path>
+                    </svg>
                   </div>
-                  <div class="col-9 d-flex flex-column justify-content-end">
+                  <div class="col-12 d-flex justify-content-center d-md-block col-md-3 mx-auto mx-md-0">
+                    <img id="coverAlbum" src="" alt="" class="mb-3 mb-md-0" id="albumImage" />
+                  </div>
+                  <div class="col-12 col-md-9 d-flex flex-column justify-content-end">
                     <div class="d-none d-md-flex d-flex justify-content-between">
                       <p>ALBUM</p>
                     </div>
-                    <h1 id="titoloAlbum" class="mb-4">Titolo Album</h1>
+                    <h1 id="titoloAlbum" class="mb-md-4">Titolo Album</h1>
                     <div id="contenitoreInfoAlbum" class="d-flex align-items-end">
                       <img id="immagineArtistaAlbum" src="" class="rounded-circle me-2" />
                       <span id="nomeArtista" class="me-2 text-light">Nome Artista</span>
                       <span id="annoAlbum" class="me-2"></span>
-                      <span id="numeroBrani" class="me-2">num brani</span>
-                      <span id="DurataAlbum" class="me-2 text-muted">durata</span>
+                      <span id="numeroBrani" class="d-none d-md-flex me-2">num brani</span>
+                      <span id="DurataAlbum" class="d-none d-md-flex me-2 text-muted">durata</span>
                     </div>
                   </div>
                 </div>
