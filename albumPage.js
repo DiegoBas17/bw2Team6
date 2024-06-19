@@ -64,13 +64,13 @@ fetch(URL, {
       row.classList.add("row", "d-flex", "align-items-center");
 
       const col1 = document.createElement("div");
-      col1.classList.add("col-1", "d-flex", "justify-content-end");
+      col1.classList.add("col-1", "d-flex", "justify-content-end", "d-none", "d-sm-flex");
 
       const songNumber = document.createElement("p");
       songNumber.innerText = i;
 
       const col2 = document.createElement("div");
-      col2.classList.add("col-7");
+      col2.classList.add("col-12", "col-sm-7");
       const nomeCanzone = document.createElement("p");
       nomeCanzone.classList.add("mb-1", "text-light");
       nomeCanzone.innerText = song.title;
@@ -78,12 +78,12 @@ fetch(URL, {
       nomeArtista.innerText = song.artist.name;
 
       const col3 = document.createElement("div");
-      col3.classList.add("col-2", "d-flex", "justify-content-end");
+      col3.classList.add("col-2", "d-flex", "justify-content-end", "d-none", "d-sm-flex");
       const riproduzioni = document.createElement("p");
       riproduzioni.innerText = song.rank.toLocaleString();
 
       const col4 = document.createElement("div");
-      col4.classList.add("col-2", "d-flex", "justify-content-end");
+      col4.classList.add("col-2", "d-flex", "justify-content-end", "d-none", "d-sm-flex");
       const durataCanzone = document.createElement("p");
 
       durataCanzone.innerText = convertitoreDurationASecondi(song.duration);
