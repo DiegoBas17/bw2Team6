@@ -116,9 +116,3 @@ footer img {
 #main-container {
   height: 90vh;
 }
-
-@media (min-width: 768px) {
-  #coverAlbum {
-    width: 100%;
-  }
-}
