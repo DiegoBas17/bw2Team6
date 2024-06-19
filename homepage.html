@@ -342,7 +342,7 @@
                 <div id="heroAnnuncio" class="d-none d-sm-block">
                   <div class="row p-3 my-3">
                     <div
-                      class="col-6 col-md-5 object-fit-cover overflow-hidden"
+                      class="col-6 col-md-5 d-flex align-items-center object-fit-cover overflow-hidden"
                     >
                       <img
                         src=""
@@ -453,19 +453,20 @@
                 </div>
                 <div class="row g-2" id="playlistContainer"></div>
                 <!--  sezione altro che ci piace -->
-                <div
-                  class="d-flex justify-content-between mt-3 d-none d-sm-block"
-                >
-                  <h3>Altro di ciò che ti piace</h3>
-                  <p>
-                    <a
-                      href="#"
-                      class="text-decoration-none text-secondary d-none d-sm-block"
-                      >viasualizza tutto</a
-                    >
-                  </p>
+                <div class="d-none d-sm-block mt-3">
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                  >
+                    <h3>Altro di ciò che ti piace</h3>
+                    <p class="mb-0">
+                      <a href="#" class="text-decoration-none text-secondary"
+                        >visualizza tutto</a
+                      >
+                    </p>
+                  </div>
                 </div>
-                <div id="cotenitoreCarte2" class="d-none d-sm-block"></div>
+
+                <div id="cotenitoreCarte2" class="d-none d-sm-block mb-5"></div>
               </div>
               <!-- versione mobile playlist -->
               <div id="contenitoreCardsPlaylistMobile" class="d-sm-none"></div>
@@ -685,7 +686,7 @@
               </svg>
             </button>
 
-            <button class="btn btn-light rounded-circle">
+            <button class="btn btn-light rounded-circle" id="playButtonMusic">
               <svg
                 data-encore-id="icon"
                 role="img"
@@ -731,11 +732,8 @@
               </svg>
             </button>
           </div>
-          <div
-            id="progress-bar"
-            class="d-flex justify-content-center align-items-center"
-          >
-            <span>0:58</span>
+          <div class="d-flex justify-content-center align-items-center">
+            <span id="tempoDiRiproduzione">0:00</span>
             <div
               class="progress mx-2"
               role="progressbar"
@@ -745,9 +743,13 @@
               aria-valuemax="100"
               style="height: 4px; width: 80%"
             >
-              <div class="progress-bar bg-light" style="width: 25%"></div>
+              <div
+                class="progress-bar bg-light"
+                id="progress-bar"
+                style="width: 0%"
+              ></div>
             </div>
-            <span>3:20</span>
+            <span>0:30</span>
           </div>
         </div>
         <div class="col-3 d-flex justify-content-end">

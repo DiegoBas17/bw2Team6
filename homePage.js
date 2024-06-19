@@ -130,6 +130,9 @@ function createCardAltro(objPlaylist) {
     "col-6"
   );
 
+  const imgContainer = document.createElement("div");
+  imgContainer.classList.add("position-relative");
+
   const img = document.createElement("img");
   img.src = objPlaylist.picture_medium;
   img.alt = objPlaylist.title;
@@ -138,6 +141,25 @@ function createCardAltro(objPlaylist) {
   img.addEventListener("click", () => {
     console.log(`Immagine cliccata: ${objPlaylist.title}`);
   });
+
+  const playBtn = document.createElement("button");
+  playBtn.innerHTML = `<svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 16 16" width="20px" height="20px" class="Svg-sc-ytk21e-0 dYnaPI"><path d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288V1.713z"></path></svg>`;
+  playBtn.classList.add(
+    "btn",
+    "rounded-circle",
+    "bg-success",
+    "d-flex",
+    "justify-content-center",
+    "align-items-center",
+    "position-absolute",
+    "bottom-0",
+    "end-0",
+    "d-none",
+    "p-2"
+  );
+
+  imgContainer.appendChild(img);
+  imgContainer.appendChild(playBtn);
 
   const cardBody = document.createElement("div");
   cardBody.classList.add("card-body");
@@ -156,11 +178,21 @@ function createCardAltro(objPlaylist) {
 
   cardBody.appendChild(cardTitle);
   cardBody.appendChild(cardText);
-  card.appendChild(img);
+  card.appendChild(imgContainer);
   card.appendChild(cardBody);
+
+  card.addEventListener("mouseover", () => {
+    playBtn.classList.remove("d-none");
+    card.classList.add("shadow-lg");
+  });
+  card.addEventListener("mouseout", () => {
+    playBtn.classList.add("d-none");
+    card.classList.remove("shadow-lg");
+  });
 
   return card;
 }
+
 const row = document.createElement("div");
 row.classList.add("row", "justify-content-between", "g-2");
 playlistContainer2.appendChild(row);
@@ -289,3 +321,33 @@ function creaPlaylistCardMobile(objPlaylist) {
 }
 
 window.addEventListener("DOMContentLoaded", idRandomAnnunciForFetch);
+
+/* footer */
+const tempoDiRiproduzione = document.getElementById("tempoDiRiproduzione");
+const progressBar = document.getElementById("progress-bar");
+const playButton = document.getElementById("playButtonMusic");
+let currentTime = 0;
+let maxTime = 30;
+
+playButton.addEventListener("click", function () {
+  currentTime = 0;
+  progressBar.style.width = "0%";
+  tempoDiRiproduzione.textContent = "0:00";
+
+  const interval = setInterval(() => {
+    currentTime++;
+    let percentage = (currentTime / maxTime) * 100;
+    progressBar.style.width = percentage + "%";
+    tempoDiRiproduzione.textContent = convertitoreDurationASecondi(currentTime);
+
+    if (currentTime === maxTime) {
+      clearInterval(interval);
+    }
+  }, 1000);
+});
+function convertitoreDurationASecondi(duration) {
+  const minuti = Math.floor(duration / 60);
+  const secondi = duration % 60;
+  const tempo = minuti + ":" + (secondi < 10 ? "0" : "") + secondi;
+  return tempo;
+}
