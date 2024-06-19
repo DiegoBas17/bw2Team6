@@ -9,7 +9,7 @@ ul {
   border-radius: 20%;
 }
 #firstSvg {
-  border-radius: 20%  solid 1px;
+  border-radius: 20% solid 1px;
   background-color: grey;
   color: black;
   margin-right: 5px;
@@ -38,118 +38,100 @@ ul {
   margin-left: 100px;
 }
 
-
-             
-.divScroll{
-  
-
-overflow-y:scroll;
+.divScroll {
+  overflow-y: scroll;
 }
-#style-1::-webkit-scrollbar-track
-{
--webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-border-radius: 10px;
-background-color: black;
-
+#style-1::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: black;
 }
 
-#style-1::-webkit-scrollbar
-{
-  
-width: 12px;
-background-color: black;
+#style-1::-webkit-scrollbar {
+  width: 12px;
+  background-color: black;
 }
 
-#style-1::-webkit-scrollbar-thumb
-{
-border-radius: 10px;
--webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-background-color: #555;
-
+#style-1::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #555;
 }
 .card-body {
-padding: 10px;
+  padding: 10px;
 }
 
 .artist-page {
-padding: 20px;
+  padding: 20px;
 }
 
 .artist-header {
-margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .artist-image {
-width: 150px;
-height: 150px;
-border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
 }
 
 .artist-info {
-max-width: 500px;
+  max-width: 500px;
 }
 
 .artist-content {
-padding: 20px 0;
+  padding: 20px 0;
 }
 
 .artist-content .card {
-background-color: #181818;
-border: none;
+  background-color: #181818;
+  border: none;
 }
 
 .artist-content .card-title,
 .artist-content .card-text {
-color: #ffffff;
+  color: #ffffff;
 }
 
 .artist-content .card img {
-border-radius: 10px;
+  border-radius: 10px;
 }
 #contenitoreImgArtist {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
 }
-.contens-inside{
-margin-top: 35%;
+.contens-inside {
+  margin-top: 35%;
 }
-#braniLikes{
-border-radius: 50%;
+#braniLikes {
+  border-radius: 50%;
 }
 .divScroll {
   width: 100%;
   height: 100vh;
-  overflow-y: auto; 
-  overflow-x: hidden; 
+  overflow-y: auto;
+  overflow-x: hidden;
 }
-#style-2::-webkit-scrollbar-track
-{
--webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-border-radius: 10px;
-background-color: transparent;
-
+#style-2::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: transparent;
 }
 
-#style-2::-webkit-scrollbar
-{
-  
-width: 12px;
-background-color: transparent;
+#style-2::-webkit-scrollbar {
+  width: 12px;
+  background-color: transparent;
 }
 
-#style-2::-webkit-scrollbar-thumb
-{
-border-radius: 10px;
--webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-background-color: #555;
-
+#style-2::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #555;
 }
-#svgCrs{
+#svgCrs {
   cursor: pointer;
 }
-
-
 
 /* Personalizzazione per la navbar quando si passa a xs */
 @media (max-width: 576px) {
@@ -158,21 +140,13 @@ background-color: #555;
     font-size: 0.9rem;
   }
   .text-white {
-    font-size: 0.9rem; 
+    font-size: 0.9rem;
   }
-  
 }
-
-
-
-
-
-
-
 
 .navbar-bottom {
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
 }
 
 @media (max-width: 767.98px) {
@@ -191,25 +165,37 @@ background-color: #555;
     text-align: center;
   }
   .nav-container {
-      display: flex;
-      flex-direction: column;
-     
+    display: flex;
+    flex-direction: column;
   }
   .nav-item {
-      list-style: none;
-      margin-bottom: 10px; 
+    list-style: none;
+    margin-bottom: 10px;
   }
   .nav-link {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-decoration: none;
-      color: white;
-      font-size: 12px; 
-      padding: 8px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    font-size: 12px;
+    padding: 8px 0;
   }
   .nav-link svg {
-      margin-bottom: 5px; 
+    margin-bottom: 5px;
   }
-  
+}
+
+/* Stili per il player  */
+
+aside svg {
+  margin-right: 5px;
+}
+
+footer img {
+  height: 58px;
+}
+
+#main-container {
+  height: 90vh;
 }
