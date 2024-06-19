@@ -31,7 +31,7 @@ footer img {
 /* stili per scrollbar contenuto main */
 .divScroll {
   width: 100%;
-  height: 88vh;
+  height: 90vh;
   overflow-y: auto; /* Scorrimento solo verticale */
   overflow-x: hidden; /* Nascondi lo scorrimento orizzontale */
 }
