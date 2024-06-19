@@ -16,9 +16,11 @@
     <main class=" ">
       <div class="container-fluid">
         <div class="row">
-          <nav class="col-md-3 bg-black text-secondary d-none d-md-block">
-            <ul class="nav flex-column">
-              <li class="nav-item">
+          <nav
+            class="col-md-3 navbar-expand-md navbar-bottom col-xl-3 bg-black text-secondary"
+          >
+            <ul class="nav flex-xl-column flex-md-row">
+              <li class="nav-item d-none d-md-block">
                 <a class="nav-link text-white" href="#">...</a>
               </li>
               <li class="nav-item">
@@ -90,7 +92,7 @@
                 >
               </li>
               <br />
-              <li class="nav-item">
+              <li class="nav-item d-none d-md-block">
                 <a
                   class="nav-link text-white d-flex align-items-center"
                   href="#"
@@ -113,15 +115,15 @@
                   Crea playlist</a
                 >
               </li>
-              <li class="nav-item">
+              <li class="nav-item d-none d-md-block">
                 <a
-                  class="nav-link text-white d-flex align-items-center"
+                  class="nav-link text-white d-flex align-items-center "
                   href="#"
                 >
                   <img
                     src="https://misc.scdn.co/liked-songs/liked-songs-64.png"
                     alt="Crea playlist"
-                    class="playlist-icon"
+                    class="playlist-icon me-1 "
                     width="22"
                     height="22"
                     id="imgStart"
@@ -129,7 +131,7 @@
                   Brani che ti piacciono</a
                 >
               </li>
-              <li class="nav-item">
+              <li class="nav-item d-none d-md-block">
                 <a
                   class="nav-link text-white d-flex align-items-center"
                   href="#"
@@ -144,7 +146,7 @@
                     width="22"
                     height="22"
                     id="imgStart"
-                    class="mMx2LUixlnN_Fu45JpFB iJp40IxKg6emF6KYJ414 yOKoknIYYzAE90pe7_SE Yn2Ei5QZn19gria6LjZj"
+                    class="mMx2LUixlnN_Fu45JpFB iJp40IxKg6emF6KYJ414 yOKoknIYYzAE90pe7_SE Yn2Ei5QZn19gria6LjZj me-1"
                     srcset="
                       https://misc.scdn.co/your-episodes/SE-64.png 32w,
                       https://misc.scdn.co/your-episodes/SE-64.png 64w
@@ -156,11 +158,11 @@
             </ul>
             <hr />
             <div
-              class="divScroll"
+              class="divScroll d-none d-md-block"
               id="style-1"
-              style="width: 100%; height: 49vh; overflow: auto"
+              style="width: 100%; height: 700px; overflow: auto"
             >
-              <ul class="nav flex-column">
+              <ul class="nav flex-column d-none d-sm-block">
                 <li class="nav-item">
                   <a class="nav-link text-white" href="#"
                     >early stage emily syndrome (sett-ott 2022)</a
@@ -202,7 +204,7 @@
                     >landing page (mar-apr 2022)
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      id="arrow"
+                     
                       width="16"
                       height="16"
                       fill="currentColor"
@@ -225,7 +227,7 @@
                       width="16"
                       height="16"
                       fill="currentColor"
-                      class="bi bi-arrow-down-circle-fill ms-4"
+                      class="bi bi-arrow-down-circle-fill"
                       viewBox="0 0 16 16"
                     >
                       <path
@@ -612,7 +614,62 @@
         </div>
       </div>
     </main>
-    <footer>
+    <div class="player-bottom d-md-none">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col">
+            <div class="player-content rounded">
+              <p class="d-inline">Titolo Canzone in Play</p>
+              <svg
+                data-encore-id="icon"
+                role="presentation"
+                aria-hidden="true"
+                id="svgCrs"
+                class="Svg-sc-ytk21e-0 dYnaPI"
+                viewBox="0 0 16 16"
+                width="20px"
+                height="20px"
+                fill="currentColor"
+              >
+                <path
+                  d="M6 2.75C6 1.784 6.784 1 7.75 1h6.5c.966 0 1.75.784 1.75 1.75v10.5A1.75 1.75 0 0 1 14.25 15h-6.5A1.75 1.75 0 0 1 6 13.25V2.75zm1.75-.25a.25.25 0 0 0-.25.25v10.5c0 .138.112.25.25.25h6.5a.25.25 0 0 0 .25-.25V2.75a.25.25 0 0 0-.25-.25h-6.5zm-6 0a.25.25 0 0 0-.25.25v6.5c0 .138.112.25.25.25H4V11H1.75A1.75 1.75 0 0 1 0 9.25v-6.5C0 1.784.784 1 1.75 1H4v1.5H1.75zM4 15H2v-1.5h2V15z"
+                ></path>
+                <path
+                  d="M13 10a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm-1-5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"
+                ></path>
+              </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20px"
+                height="20px"
+                id="svgCrs"
+                fill="currentColor"
+                class="bi bi-heart"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"
+                />
+              </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="25px"
+                height="25px"
+                id="svgCrs"
+                fill="currentColor"
+                class="bi bi-play-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="d-none d-md-block">
       <div
         class="row justify-content-between text-white p-3 fixed-bottom bg-dark align-items-center"
       >
