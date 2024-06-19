@@ -109,4 +109,32 @@ fetch(URL, {
   })
   .catch((err) => console.log(err));
 
-const riproduzioneAlbum = () => {};
+const riproduzioneAlbum = () => {
+  fetch(URL, {
+    headers: {
+      "x-rapidapi-key": "488a8ebce0msh914112a61b3a6a1p19c0e4jsn3acc13a47a88",
+      "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
+    },
+  })
+    .then((resp) => {
+      if (resp.ok) {
+        console.log(resp);
+        return resp.json();
+      } else {
+        throw `Errore ${resp.status} : errore nella creazione dell'annuncio`;
+      }
+    })
+    .then((album) => {
+      const imgPlayer = document.getElementById("immagine-player");
+      imgPlayer.src = album.cover_small;
+
+      const nomeBrano = document.getElementById("nome-brano-player");
+      nomeBrano.innerText = album.tracks.data[0].title;
+
+      const nomeArtista = document.getElementById("nome-artista-player");
+      nomeArtista.innerText = album.tracks.data[0].artist.name;
+    });
+};
+
+const playButton = document.getElementById("playButton");
+playButton.addEventListener("clik", riproduzioneAlbum());
