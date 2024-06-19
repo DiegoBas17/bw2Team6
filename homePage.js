@@ -105,7 +105,7 @@ playlistArray.forEach((id) => {
 const playlistArray2 = [25, 50, 90, 2400, 8080];
 const playlistContainer2 = document.getElementById("cotenitoreCarte2");
 
-playlistArray2.forEach((id) => {
+/* playlistArray2.forEach((id) => {
   fetch(`https://deezerdevs-deezer.p.rapidapi.com/playlist/${id}`, {
     headers: {
       "x-rapidapi-key": "488a8ebce0msh914112a61b3a6a1p19c0e4jsn3acc13a47a88",
@@ -155,6 +155,72 @@ playlistArray2.forEach((id) => {
       playlistContainer2.appendChild(card);
     })
     .catch((err) => alert(err));
-});
+}); */
+
+function createCard(objPlaylist) {
+  const card = document.createElement("div");
+  card.classList.add("card", "border-0", "card-hover", "col-md-3", "col-6");
+
+  const img = document.createElement("img");
+  img.src = objPlaylist.picture_medium;
+  img.alt = objPlaylist.title;
+  img.classList.add("card-img-top");
+  img.style.cursor = "pointer";
+  img.addEventListener("click", () => {
+    console.log(`Immagine cliccata: ${objPlaylist.title}`);
+  });
+
+  const cardBody = document.createElement("div");
+  cardBody.classList.add("card-body");
+
+  const cardTitle = document.createElement("h5");
+  cardTitle.classList.add("card-title");
+  cardTitle.innerHTML = objPlaylist.title;
+  cardTitle.style.cursor = "pointer";
+  cardTitle.addEventListener("click", () => {
+    console.log(`Titolo cliccato: ${objPlaylist.title}`);
+  });
+
+  const cardText = document.createElement("p");
+  cardText.classList.add("card-text");
+  cardText.innerHTML = "Le playlist del momento";
+
+  cardBody.appendChild(cardTitle);
+  cardBody.appendChild(cardText);
+  card.appendChild(img);
+  card.appendChild(cardBody);
+
+  return card;
+}
+const row = document.createElement("div");
+row.classList.add("row", "justify-content-between");
+playlistContainer2.appendChild(row);
+
+for (let i = 0; i < playlistArray2.length; i++) {
+  const id = playlistArray2[i];
+  fetch(`https://deezerdevs-deezer.p.rapidapi.com/playlist/${id}`, {
+    headers: {
+      "x-rapidapi-key": "488a8ebce0msh914112a61b3a6a1p19c0e4jsn3acc13a47a88",
+      "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
+    },
+  })
+    .then((resp) => {
+      if (resp.ok) {
+        return resp.json();
+      } else {
+        throw `Errore ${resp.status} : errore nella creazione dell'annuncio`;
+      }
+    })
+    .then((objPlaylist) => {
+      const card = createCard(objPlaylist);
+
+      if (i === playlistArray2.length - 1) {
+        card.classList.add("d-none", "d-xl-block");
+      }
+
+      row.appendChild(card);
+    })
+    .catch((err) => alert(err));
+}
 
 window.addEventListener("DOMContentLoaded", idRandomAnnunciForFetch);
