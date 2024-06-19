@@ -72,8 +72,24 @@ fetch(URL, {
       const col2 = document.createElement("div");
       col2.classList.add("col-11", "col-sm-7");
       const nomeCanzone = document.createElement("p");
-      nomeCanzone.classList.add("mb-1", "text-light");
+      nomeCanzone.classList.add("mb-1", "text-light", "pointer");
       nomeCanzone.innerText = song.title;
+
+      nomeCanzone.addEventListener("click", () => {
+        const imgPlayer = document.getElementById("immagine-player");
+        imgPlayer.src = album.cover_small;
+
+        const nomeBrano = document.getElementById("nome-brano-player");
+        nomeBrano.innerText = song.title;
+
+        const nomeArtista = document.getElementById("nome-artista-player");
+        nomeArtista.innerText = song.artist.name;
+        const previewCanzone = document.getElementById("audioPlayer");
+        previewCanzone.src = song.preview;
+        previewCanzone.play();
+        progressBarPlayer();
+      });
+
       const nomeArtista = document.createElement("p");
       nomeArtista.innerText = song.artist.name;
 
@@ -108,7 +124,8 @@ fetch(URL, {
     });
   })
   .catch((err) => console.log(err));
-
+/* ************************************************************* */
+//funzione per rendere dinamico il player dal tasto play dell'album generico
 const riproduzioneAlbum = () => {
   fetch(URL, {
     headers: {
@@ -133,8 +150,36 @@ const riproduzioneAlbum = () => {
 
       const nomeArtista = document.getElementById("nome-artista-player");
       nomeArtista.innerText = album.tracks.data[0].artist.name;
+
+      const previewCanzone = document.getElementById("audioPlayer");
+      previewCanzone.src = album.tracks.data[0].preview;
+
+      previewCanzone.play();
     });
 };
 
+const progressBarPlayer = () => {
+  const tempoDiRiproduzione = document.getElementById("tempoDiRiproduzione");
+  const progressBar = document.getElementById("progress-bar");
+  let currentTime = 0;
+  let maxTime = 30;
+  progressBar.style.width = "0%";
+  tempoDiRiproduzione.innerText = "0:00";
+
+  const interval = setInterval(() => {
+    currentTime++;
+    let percentage = (currentTime / maxTime) * 100;
+
+    progressBar.style.width = percentage + "%";
+    tempoDiRiproduzione.textContent = convertitoreDurationASecondi(currentTime);
+
+    if (currentTime === maxTime) {
+      clearInterval(interval);
+    }
+  }, 1000);
+};
 const playButton = document.getElementById("playButton");
-playButton.addEventListener("clik", riproduzioneAlbum());
+playButton.addEventListener("click", () => {
+  riproduzioneAlbum();
+  progressBarPlayer();
+});

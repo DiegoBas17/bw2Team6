@@ -642,7 +642,7 @@
               </svg>
             </button>
 
-            <button class="btn btn-light rounded-circle">
+            <button class="btn btn-light rounded-circle" id="playButtonMusic">
               <svg
                 data-encore-id="icon"
                 role="img"
@@ -688,8 +688,8 @@
               </svg>
             </button>
           </div>
-          <div id="progress-bar" class="d-flex justify-content-center align-items-center">
-            <span>0:58</span>
+          <div class="d-flex justify-content-center align-items-center">
+            <span id="tempoDiRiproduzione">0:00</span>
             <div
               class="progress mx-2"
               role="progressbar"
@@ -699,9 +699,9 @@
               aria-valuemax="100"
               style="height: 4px; width: 80%"
             >
-              <div class="progress-bar bg-light" style="width: 25%"></div>
+              <div class="progress-bar bg-light" id="progress-bar" style="width: 0%"></div>
             </div>
-            <span>3:20</span>
+            <span>0:30</span>
           </div>
         </div>
         <div class="col-3 d-flex justify-content-end">
@@ -807,6 +807,7 @@
           </button>
         </div>
       </div>
+      <audio id="audioPlayer" src=""></audio>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./albumPage.js"></script>
