@@ -70,7 +70,7 @@ fetch(URL, {
       songNumber.innerText = i;
 
       const col2 = document.createElement("div");
-      col2.classList.add("col-12", "col-sm-7");
+      col2.classList.add("col-11", "col-sm-7");
       const nomeCanzone = document.createElement("p");
       nomeCanzone.classList.add("mb-1", "text-light");
       nomeCanzone.innerText = song.title;
@@ -85,9 +85,15 @@ fetch(URL, {
       const col4 = document.createElement("div");
       col4.classList.add("col-2", "d-flex", "justify-content-end", "d-none", "d-sm-flex");
       const durataCanzone = document.createElement("p");
+      //qui genero il bottone per il sottomenù presente solo negli schermi piccoli
+      const colSvg = document.createElement("div");
+      colSvg.classList.add("col-1", "d-sm-none");
+      const buttonOptions = document.createElement("button");
+      buttonOptions.classList.add("btn", "btn-transparent", "p-0");
+      buttonOptions.innerHTML = `<svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 24 24" class="Svg-sc-ytk21e-0 bneLcE" width="20px" fill="currentColor"><path d="M10.5 4.5a1.5 1.5 0 1 0 3 0 1.5 1.5 0 0 0-3 0zm0 15a1.5 1.5 0 1 0 3 0 1.5 1.5 0 0 0-3 0zm0-7.5a1.5 1.5 0 1 0 3 0 1.5 1.5 0 0 0-3 0z"></path></svg>`;
 
       durataCanzone.innerText = convertitoreDurationASecondi(song.duration);
-
+      colSvg.appendChild(buttonOptions);
       col4.appendChild(durataCanzone);
       col3.appendChild(riproduzioni);
       col2.appendChild(nomeCanzone);
@@ -97,6 +103,10 @@ fetch(URL, {
       row.appendChild(col2);
       row.appendChild(col3);
       row.appendChild(col4);
+      row.appendChild(colSvg);
       braniContainer.appendChild(row);
     });
-  });
+  })
+  .catch((err) => console.log(err));
+
+const riproduzioneAlbum = () => {};

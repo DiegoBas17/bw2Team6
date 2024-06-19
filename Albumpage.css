@@ -2,6 +2,9 @@
   height: 20px;
 }
 
+body {
+  font-family: "Circular";
+}
 #playButton {
   background-color: #1fdf64;
   border: none;
