@@ -21,7 +21,7 @@ fetch(`https://striveschool-api.herokuapp.com/api/deezer/artist/${id}`, {
     console.log(objArtist);
     contenitoreImgArtist.style.backgroundImage = `url(${objArtist.picture_xl})`;
     NomeArtista.innerHTML = objArtist.name;
-    numeroFanArtist.innerHTML = objArtist.nb_fan.toLocaleString();
+    numeroFanArtist.innerHTML = `${objArtist.nb_fan.toLocaleString()} ascoltatori mensili`;
 
     // Fetch della tracklist
     return fetch(objArtist.tracklist, {
