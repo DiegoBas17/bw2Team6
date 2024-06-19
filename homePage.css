@@ -82,7 +82,7 @@ aside svg {
 }
 .divScroll {
   width: 100%;
-  height: 100vh;
+  height: 88vh;
   overflow-y: auto; /* Scorrimento solo verticale */
   overflow-x: hidden; /* Nascondi lo scorrimento orizzontale */
 }
