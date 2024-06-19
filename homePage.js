@@ -62,6 +62,36 @@ buttonPlayAnnuncioHomePage.addEventListener("click", () => {
 /* sezione per la parte playlist */
 const playlistArray = [25, 50, 90, 2400, 8080, 2465]; /* tesoro */
 const playlistContainer = document.getElementById("playlistContainer");
+
+function createPlaylistCard(objPlaylist) {
+  const playlistCard = document.createElement("div");
+  playlistCard.classList.add(
+    "col-6",
+    "col-sm-6",
+    "col-lg-4",
+    "bg-dark",
+    "card-hover"
+  );
+  playlistCard.style.cursor = "pointer";
+  playlistCard.addEventListener("click", () => {
+    console.log(`Immagine cliccata: ${objPlaylist.title}`);
+  });
+
+  const img = document.createElement("img");
+  img.src = objPlaylist.picture_medium;
+  img.alt = objPlaylist.title;
+  img.classList.add("d-inline");
+  img.style.width = "80px";
+
+  const title = document.createElement("p");
+  title.innerHTML = objPlaylist.title;
+  title.classList.add("d-inline", "ms-2");
+
+  playlistCard.appendChild(img);
+  playlistCard.appendChild(title);
+  playlistContainer.appendChild(playlistCard);
+}
+
 playlistArray.forEach((id) => {
   fetch(`https://deezerdevs-deezer.p.rapidapi.com/playlist/${id}`, {
     headers: {
@@ -78,88 +108,26 @@ playlistArray.forEach((id) => {
     })
     .then((objPlaylist) => {
       console.log(objPlaylist);
-      const playlistCard = document.createElement("div");
-      playlistCard.classList.add("col-4", "bg-dark", "card-hover");
-      playlistCard.style.cursor = "pointer";
-      playlistCard.addEventListener("click", () => {
-        console.log(`Immagine cliccata: ${objPlaylist.title}`);
-      });
-
-      const img = document.createElement("img");
-      img.src = objPlaylist.picture_medium;
-      img.alt = objPlaylist.title;
-      img.classList.add("d-inline");
-      img.style.width = "80px";
-
-      const title = document.createElement("p");
-      title.innerHTML = objPlaylist.title;
-      title.classList.add("d-inline", "ms-2");
-
-      playlistCard.appendChild(img);
-      playlistCard.appendChild(title);
-      playlistContainer.appendChild(playlistCard);
+      createPlaylistCard(objPlaylist);
     })
     .catch((err) => alert(err));
 });
+
 /* altro che ti piace */
 const playlistArray2 = [25, 50, 90, 2400, 8080];
 const playlistContainer2 = document.getElementById("cotenitoreCarte2");
 
-/* playlistArray2.forEach((id) => {
-  fetch(`https://deezerdevs-deezer.p.rapidapi.com/playlist/${id}`, {
-    headers: {
-      "x-rapidapi-key": "488a8ebce0msh914112a61b3a6a1p19c0e4jsn3acc13a47a88",
-      "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
-    },
-  })
-    .then((resp) => {
-      if (resp.ok) {
-        return resp.json();
-      } else {
-        throw `Errore ${resp.status} : errore nella creazione dell'annuncio`;
-      }
-    })
-    .then((objPlaylist) => {
-      const card = document.createElement("div");
-      card.classList.add("card", "border-0", "card-hover");
-      card.style.width = "18%";
-
-      const img = document.createElement("img");
-      img.src = objPlaylist.picture_medium;
-      img.alt = objPlaylist.title;
-      img.classList.add("card-img-top");
-      img.style.cursor = "pointer";
-      img.addEventListener("click", () => {
-        console.log(`Immagine cliccata: ${objPlaylist.title}`);
-      });
-
-      const cardBody = document.createElement("div");
-      cardBody.classList.add("card-body");
-
-      const cardTitle = document.createElement("h5");
-      cardTitle.classList.add("card-title");
-      cardTitle.innerHTML = objPlaylist.title;
-      cardTitle.style.cursor = "pointer";
-      cardTitle.addEventListener("click", () => {
-        console.log(`Titolo cliccato: ${objPlaylist.title}`);
-      });
-
-      const cardText = document.createElement("p");
-      cardText.classList.add("card-text");
-      cardText.innerHTML = "Le playlist del momento";
-
-      cardBody.appendChild(cardTitle);
-      cardBody.appendChild(cardText);
-      card.appendChild(img);
-      card.appendChild(cardBody);
-      playlistContainer2.appendChild(card);
-    })
-    .catch((err) => alert(err));
-}); */
-
-function createCard(objPlaylist) {
+function createCardAltro(objPlaylist) {
   const card = document.createElement("div");
-  card.classList.add("card", "border-0", "card-hover", "col-md-3", "col-6");
+  card.classList.add(
+    "card",
+    "border-0",
+    "card-hover",
+    "col-md-3",
+    "col-lg-3",
+    "col-xl-2",
+    "col-6"
+  );
 
   const img = document.createElement("img");
   img.src = objPlaylist.picture_medium;
@@ -193,7 +161,7 @@ function createCard(objPlaylist) {
   return card;
 }
 const row = document.createElement("div");
-row.classList.add("row", "justify-content-between");
+row.classList.add("row", "justify-content-between", "g-2");
 playlistContainer2.appendChild(row);
 
 for (let i = 0; i < playlistArray2.length; i++) {
@@ -212,7 +180,7 @@ for (let i = 0; i < playlistArray2.length; i++) {
       }
     })
     .then((objPlaylist) => {
-      const card = createCard(objPlaylist);
+      const card = createCardAltro(objPlaylist);
 
       if (i === playlistArray2.length - 1) {
         card.classList.add("d-none", "d-xl-block");
@@ -222,5 +190,6 @@ for (let i = 0; i < playlistArray2.length; i++) {
     })
     .catch((err) => alert(err));
 }
+/* parte mobile */
 
 window.addEventListener("DOMContentLoaded", idRandomAnnunciForFetch);
