@@ -133,8 +133,8 @@ async function fetchTracks() {
 
 function loadTrack(index) {
     audio.src = tracks[index].src;
-    document.getElementById('track-title').innerText = tracks[index].title;
-    document.getElementById('track-artist').innerText = tracks[index].artist;
+    document.querySelectorAll('.track-title').forEach(el => el.innerText = tracks[index].title);
+    document.querySelectorAll('.track-artist').forEach(el => el.innerText = tracks[index].artist);
     document.getElementById('album-art').src = tracks[index].albumArt;
     audio.load();
 }
@@ -183,5 +183,10 @@ function formatTime(seconds) {
     return `${minutes}:${sec < 10 ? '0' : ''}${sec}`;
 }
 
-// Caricare le tracce all'avvio
+
 fetchTracks();
+
+const playPauseIcons = document.querySelectorAll('.play-pause-icon');
+playPauseIcons.forEach(icon => {
+    icon.addEventListener('click', playPauseTrack);
+});

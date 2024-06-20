@@ -583,7 +583,8 @@
         <div class="row align-items-center">
           <div class="col">
             <div class="player-content rounded">
-              <p class="d-inline">Titolo Canzone in Play</p>
+              <p  class="d-inline track-title">Titolo</p>
+              <p  class="d-inline track-artist">Artista</p>
               <svg
                 data-encore-id="icon"
                 role="presentation"
@@ -617,10 +618,11 @@
                 xmlns="http://www.w3.org/2000/svg"
                 width="25px"
                 height="25px"
-                id="svgCrs"
+                class="play-pause-icon" 
                 fill="currentColor"
                 class="bi bi-play-fill"
                 viewBox="0 0 16 16"
+                id="svgCrs"
               >
                 <path
                   d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"
@@ -632,6 +634,7 @@
       </div>
     </div>
 
+
     <footer class="d-none d-md-block">
       <div class="row justify-content-between text-white p-3 fixed-bottom bg-dark align-items-center">
         <div class="col-3">
@@ -640,8 +643,8 @@
               <img id="album-art" src="./assets/imgs/main/image-1.jpg" alt="Album Art" />
             </div>
             <div class="me-3">
-              <p id="track-title" class="m-0">Titolo</p>
-              <p id="track-artist" class="m-0">Artista</p>
+              <p id="track-title" class="m-0 track-title">Titolo</p>
+              <p id="track-artist" class="m-0 track-artist">Artista</p>
             </div>
             <div id="bottone-salva-canzone">
               <button class="btn btn-transparent">
@@ -822,7 +825,7 @@
               ></path>
             </svg>
           </button>
-          <input id="volumeSelector" type="range" value="0" min="0" max="100" />
+          <input id="volume" type="range" value="1" min="0" max="1" step="0.01" />
 
           <button class="btn btn-transparent mx-2 p-0 d-none d-xl-block">
             <svg
