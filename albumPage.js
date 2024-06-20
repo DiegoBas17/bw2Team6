@@ -36,6 +36,15 @@ window.addEventListener("DOMContentLoaded", () => {
       //inserisco dati dell'album dinamicamente nel banner in alto
       const coverAlbum = document.getElementById("coverAlbum");
       coverAlbum.src = album.cover_medium;
+      coverAlbum.crossOrigin = "Anonymous";
+
+      /* funzione per creare il nostro background */
+      const imgThief = coverAlbum;
+      const colorThief = new ColorThief();
+      if (imgThief.complete) {
+        const coloreDomimante = colorThief.getColor(imgThief);
+        console.log(coloreDomimante);
+      }
 
       const titoloAlbum = document.getElementById("titoloAlbum");
       titoloAlbum.innerText = album.title;
@@ -65,7 +74,13 @@ window.addEventListener("DOMContentLoaded", () => {
         row.classList.add("row", "d-flex", "align-items-center");
 
         const col1 = document.createElement("div");
-        col1.classList.add("col-1", "d-flex", "justify-content-end", "d-none", "d-sm-flex");
+        col1.classList.add(
+          "col-1",
+          "d-flex",
+          "justify-content-end",
+          "d-none",
+          "d-sm-flex"
+        );
 
         const songNumber = document.createElement("p");
         songNumber.innerText = i;
@@ -92,16 +107,24 @@ window.addEventListener("DOMContentLoaded", () => {
 
           //ad ogni secondo che passa viene aggiornata la progressbar e i secondi della traccia
           previewCanzone.addEventListener("timeupdate", function () {
-            document.getElementById("progress").value = (previewCanzone.currentTime / previewCanzone.duration) * 100;
-            document.getElementById("current-time").innerText = formatTime(previewCanzone.currentTime);
-            document.getElementById("duration").innerText = formatTime(previewCanzone.duration);
+            document.getElementById("progress").value =
+              (previewCanzone.currentTime / previewCanzone.duration) * 100;
+            document.getElementById("current-time").innerText = formatTime(
+              previewCanzone.currentTime
+            );
+            document.getElementById("duration").innerText = formatTime(
+              previewCanzone.duration
+            );
           });
 
           //al movimento dello slider simanda a vanti o indietro la canzone
 
-          document.getElementById("progress").addEventListener("input", function () {
-            previewCanzone.currentTime = previewCanzone.duration * (this.value / 100);
-          });
+          document
+            .getElementById("progress")
+            .addEventListener("input", function () {
+              previewCanzone.currentTime =
+                previewCanzone.duration * (this.value / 100);
+            });
         });
         const previewCanzone = document.getElementById("audioPlayer");
         //seleziono i tasto play del player
@@ -110,12 +133,24 @@ window.addEventListener("DOMContentLoaded", () => {
         nomeArtista.innerText = song.artist.name;
 
         const col3 = document.createElement("div");
-        col3.classList.add("col-2", "d-flex", "justify-content-end", "d-none", "d-sm-flex");
+        col3.classList.add(
+          "col-2",
+          "d-flex",
+          "justify-content-end",
+          "d-none",
+          "d-sm-flex"
+        );
         const riproduzioni = document.createElement("p");
         riproduzioni.innerText = song.rank.toLocaleString();
 
         const col4 = document.createElement("div");
-        col4.classList.add("col-2", "d-flex", "justify-content-end", "d-none", "d-sm-flex");
+        col4.classList.add(
+          "col-2",
+          "d-flex",
+          "justify-content-end",
+          "d-none",
+          "d-sm-flex"
+        );
         const durataCanzone = document.createElement("p");
         //qui genero il bottone per il sottomenù presente solo negli schermi piccoli
         const colSvg = document.createElement("div");
@@ -175,15 +210,23 @@ window.addEventListener("DOMContentLoaded", () => {
         //ad ogni secondo che passa viene aggiornata la progressbar e i secondi della traccia
 
         previewCanzone.addEventListener("timeupdate", function () {
-          document.getElementById("progress").value = (previewCanzone.currentTime / previewCanzone.duration) * 100;
-          document.getElementById("current-time").innerText = formatTime(previewCanzone.currentTime);
-          document.getElementById("duration").innerText = formatTime(previewCanzone.duration);
+          document.getElementById("progress").value =
+            (previewCanzone.currentTime / previewCanzone.duration) * 100;
+          document.getElementById("current-time").innerText = formatTime(
+            previewCanzone.currentTime
+          );
+          document.getElementById("duration").innerText = formatTime(
+            previewCanzone.duration
+          );
         });
 
         //al movimento dello slider simanda a vanti o indietro la canzone
-        document.getElementById("progress").addEventListener("input", function () {
-          previewCanzone.currentTime = previewCanzone.duration * (this.value / 100);
-        });
+        document
+          .getElementById("progress")
+          .addEventListener("input", function () {
+            previewCanzone.currentTime =
+              previewCanzone.duration * (this.value / 100);
+          });
       });
   };
 
@@ -200,7 +243,8 @@ window.addEventListener("DOMContentLoaded", () => {
       let percentage = (currentTime / maxTime) * 100;
 
       progressBar.style.width = percentage + "%";
-      tempoDiRiproduzione.textContent = convertitoreDurationASecondi(currentTime);
+      tempoDiRiproduzione.textContent =
+        convertitoreDurationASecondi(currentTime);
 
       if (currentTime === maxTime) {
         clearInterval(interval);
@@ -209,8 +253,11 @@ window.addEventListener("DOMContentLoaded", () => {
   };
 
   const aggiornamentoProgressBarSlider = () => {
-    document.getElementById("progress").value = (audio.currentTime / audio.duration) * 100;
-    document.getElementById("current-time").innerText = formatTime(audio.currentTime);
+    document.getElementById("progress").value =
+      (audio.currentTime / audio.duration) * 100;
+    document.getElementById("current-time").innerText = formatTime(
+      audio.currentTime
+    );
     document.getElementById("duration").innerText = formatTime(audio.duration);
   };
   const playButton = document.getElementById("playButtonVerde");
@@ -221,7 +268,9 @@ window.addEventListener("DOMContentLoaded", () => {
   //********************PLAYER DEFAULT********************** */
 
   let audio = document.getElementById("audioPlayer");
-  const buttonPlayerPlayPause = document.getElementById("buttonPlayerPlayPause");
+  const buttonPlayerPlayPause = document.getElementById(
+    "buttonPlayerPlayPause"
+  );
 
   function formatTime(seconds) {
     const minutes = Math.floor(seconds / 60);
