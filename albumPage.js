@@ -1,7 +1,8 @@
 const params = new URLSearchParams(window.location.search);
 const albumId = params.get("albumId");
 
-const URL = "https://striveschool-api.herokuapp.com/api/deezer/album/" + albumId;
+const URL =
+  "https://striveschool-api.herokuapp.com/api/deezer/album/" + albumId;
 
 function convertitoreDurationASecondi(duration) {
   const minuti = Math.floor(duration / 60);

@@ -217,8 +217,75 @@ background: linear-gradient(180deg, rgba(255,255,255,0.14329481792717091) 59%, r
 }
 #barraRicercaHome {
   display: none;
+  
 }
 
 #barraRicercaHome.active {
   display: inline-block;
+  
 } 
+@media screen and (max-width: 576px){
+  #barraRicercaHome input {
+    width: 88vw;
+  }
+}
+/* sezione per il sfoglia tutto della versione mobile */
+/* parte dei colori */
+#cardSfogliaTutto1{
+  background-color: #E13300;
+}
+#cardSfogliaTutto2{
+  background-color: #1E3264;
+}
+#cardSfogliaTutto3{
+  background-color: #E8115C;
+}
+#cardSfogliaTutto4{
+  background-color: #158A08;
+}
+#cardSfogliaTutto5{
+  background-color: #BC5800;
+}
+#cardSfogliaTutto6{
+  background-color: #E13300;
+}
+#cardSfogliaTutto7{
+  background-color: #DF128B;
+}
+#cardSfogliaTutto8{
+  background-color: #8360A0;
+}
+#cardSfogliaTutto9{
+  background-color: #E13300;
+}
+#cardSfogliaTutto10{
+  background-color: #1E3264;
+}
+.cardsSfogliaTutto {
+  position: relative;
+  height: 13vh;
+  overflow: hidden;
+}
+.cardsSfogliaTutto h4{
+width: 70%;
+}
+.cardsSfogliaTutto img {
+  position: absolute;
+  height: 65%;
+  right: -20px;
+  top: 28px;
+  rotate: 25deg;
+  box-shadow: 0px 0px 10px 2px #000000;
+}
+#testoMobileCerca{
+  display: none;
+}
+#testoMobileCerca.active{
+  display: block;
+}
+#contenitoreMobileCerca {
+  display: none;
+}
+#contenitoreMobileCerca.active {
+  display: block;
+}

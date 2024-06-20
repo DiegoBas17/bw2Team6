@@ -313,7 +313,11 @@
           >
             <div class="divScroll" id="style-2">
               <div class="container">
-                <div id="barraSuperiore" class="d-none d-sm-block">
+                <!-- creo un div che compare solo nel  momento in cui sono a mobile e sono nella modalita cerca-->
+                <div id="testoMobileCerca" class="d-sm-none">
+                  <h2>Cerca</h2>
+                </div>
+                <div id="barraSuperiore">
                   <div
                     class="d-flex justify-content-between align-items-center"
                   >
@@ -323,7 +327,7 @@
                     >
                       <div
                         id="contenitoreIconaFrecciaSinistra"
-                        class="d-inline"
+                        class="d-inline d-none d-sm-block"
                       >
                         <svg
                           data-encore-id="icon"
@@ -342,7 +346,7 @@
                       </div>
                       <div
                         id="contenitoreIconaFrecciaDestra"
-                        class="d-inline ms-2"
+                        class="d-inline ms-2 d-none d-sm-block"
                       >
                         <svg
                           data-encore-id="icon"
@@ -360,10 +364,17 @@
                         </svg>
                       </div>
                       <div id="barraRicercaHome" class="ms-2">
-                        <input type="text" class="border-0" />
+                        <input
+                          type="text"
+                          class="border-0"
+                          placeholder="Cosa vuoi ascoltare?"
+                          id="barraRicercaHomeInput"
+                        />
                       </div>
                     </div>
-                    <div class="dropdown bg-black rounded-pill align-items">
+                    <div
+                      class="dropdown bg-black rounded-pill align-items d-none d-sm-block"
+                    >
                       <a
                         class="btn dropdown-toggle"
                         href="#"
@@ -384,6 +395,141 @@
                         <li><a class="dropdown-item" href="#">Profilo2</a></li>
                         <li><a class="dropdown-item" href="#">Profilo3</a></li>
                       </ul>
+                    </div>
+                  </div>
+                </div>
+                <div id="contenitoreMobileCerca" class="d-sm-none my-4">
+                  <h3 class="text-center mb-2">Sfoglia tutto</h3>
+                  <div class="row g-4">
+                    <div class="col-6">
+                      <div
+                        id="cardSfogliaTutto1"
+                        class="rounded cardsSfogliaTutto"
+                      >
+                        <h4 class="px-2 pt-3">Caffe del Buongiorno</h4>
+                        <img
+                          src="./assets/imgs/main/image-7.jpg"
+                          alt=""
+                          class="rounded"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div
+                        id="cardSfogliaTutto2"
+                        class="rounded cardsSfogliaTutto"
+                      >
+                        <h4 class="px-2 pt-3">Massima Concentrazione</h4>
+                        <img
+                          src="./assets/imgs/main/image-3.jpg"
+                          alt=""
+                          class="rounded"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div
+                        id="cardSfogliaTutto3"
+                        class="rounded cardsSfogliaTutto"
+                      >
+                        <h4 class="px-2 pt-3">Peaceful Piano</h4>
+                        <img
+                          src="./assets/imgs/main/image-4.jpg"
+                          alt=""
+                          class="rounded"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div
+                        id="cardSfogliaTutto4"
+                        class="rounded cardsSfogliaTutto"
+                      >
+                        <h4 class="px-2 pt-3">Lofi beats</h4>
+                        <img
+                          src="./assets/imgs/main/image-5.jpg"
+                          alt=""
+                          class="rounded"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div
+                        id="cardSfogliaTutto5"
+                        class="rounded cardsSfogliaTutto"
+                      >
+                        <h4 class="px-2 pt-3">Jazz Vibes</h4>
+                        <img
+                          src="./assets/imgs/main/image-6.jpg"
+                          alt=""
+                          class="rounded"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div
+                        id="cardSfogliaTutto6"
+                        class="rounded cardsSfogliaTutto"
+                      >
+                        <h4 class="px-2 pt-3">Canta Sotto La Doccia</h4>
+                        <img
+                          src="./assets/imgs/main/image-9.jpg"
+                          alt=""
+                          class="rounded"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div
+                        id="cardSfogliaTutto7"
+                        class="rounded cardsSfogliaTutto"
+                      >
+                        <h4 class="px-2 pt-3">Operazione Buonumore</h4>
+                        <img
+                          src="./assets/imgs/main/image-10.jpg"
+                          alt=""
+                          class="rounded"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div
+                        id="cardSfogliaTutto8"
+                        class="rounded cardsSfogliaTutto"
+                      >
+                        <h4 class="px-2 pt-3">Pulizie di Casa</h4>
+                        <img
+                          src="./assets/imgs/main/image-13.jpg"
+                          alt=""
+                          class="rounded"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div
+                        id="cardSfogliaTutto9"
+                        class="rounded cardsSfogliaTutto"
+                      >
+                        <h4 class="px-2 pt-3">Allenamento a Casa</h4>
+                        <img
+                          src="./assets/imgs/main/image-14.jpg"
+                          alt=""
+                          class="rounded"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div
+                        id="cardSfogliaTutto10"
+                        class="rounded cardsSfogliaTutto"
+                      >
+                        <h4 class="px-2 pt-3">Casa Dolce Casa</h4>
+                        <img
+                          src="./assets/imgs/main/image-15.jpg"
+                          alt=""
+                          class="rounded"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -446,6 +592,7 @@
                     </div>
                   </div>
                 </div>
+                <div id="cercaInMobile" class="d-sm-none"></div>
                 <!-- Sezione con le playlist -->
                 <div class="d-flex justify-content-between">
                   <h2>Buonasera</h2>
