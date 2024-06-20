@@ -352,6 +352,9 @@ document
   .getElementById("searchLink")
   .addEventListener("click", function (event) {
     event.preventDefault();
-    const iconWrapper = document.querySelector(".icon-wrapper");
+    const barraRicercaHome = document.getElementById("barraRicercaHome");
+    barraRicercaHome.classList.toggle("active");
+
+    const iconWrapper = document.querySelector(".iconWrapperSearch");
     iconWrapper.classList.toggle("active");
   });
