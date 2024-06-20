@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
   const id = new URLSearchParams(window.location.search).get("id");
   console.log("RESOURCE ID:", id);
-  /* modifica dell'html in base all'id */
   const contenitoreImgArtist = document.getElementById("contenitoreImgArtist");
   const NomeArtista = document.getElementById("NomeArtista");
   const numeroFanArtist = document.getElementById("numeroFanArtist");
@@ -74,17 +73,15 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     });
   }
-      // Aggiorna i dettagli delle canzoni
-   
+  
   function convertitoreDurationASecondi(duration) {
     const minuti = Math.floor(duration / 60);
     const secondi = duration % 60;
     const tempo = minuti + ":" + (secondi < 10 ? "0" : "") + secondi;
     return tempo;
   }
-  
 
-  // funzioni player
+  // Funzioni player
   let currentTrackIndex = 0;
   let isPlaying = false;
   let audio = new Audio();
@@ -142,8 +139,25 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   function updatePlayPauseIcon() {
-    document.getElementById('play-pause').src = isPlaying ? 'pause-icon.png' : 'play-icon.png';
+    document.querySelectorAll('.play-pause-icon').forEach(el => {
+      el.innerHTML = isPlaying ? `
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="green" class="bi bi-pause-circle-fill" viewBox="0 0 16 16">
+          <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.5 5.5A.5.5 0 0 0 6 6v4a.5.5 0 0 0 .5.5h1A.5.5 0 0 0 8 10V6a.5.5 0 0 0-.5-.5h-1zM10 5.5A.5.5 0 0 0 9.5 6v4a.5.5 0 0 0 .5.5h1A.5.5 0 0 0 11 10V6a.5.5 0 0 0-.5-.5h-1z"/>
+        </svg>
+      ` : `
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="green" class="bi bi-play-circle-fill" viewBox="0 0 16 16">
+          <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814z"/>
+        </svg>
+      `;
+    });
   }
+
+  document.getElementById('svgPlayPause').addEventListener('click', function() {
+    if (tracks.length > 0) {
+      loadTrack(0); // Carica la prima traccia (o cambia l'indice per caricare una traccia specifica)
+      playPauseTrack(); // Avvia o mette in pausa la riproduzione
+    }
+  });
 
   document.getElementById('play-pause').addEventListener('click', playPauseTrack);
   document.getElementById('prev-track').addEventListener('click', prevTrack);

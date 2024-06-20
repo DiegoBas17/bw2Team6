@@ -378,7 +378,7 @@
                       fill="green"
                       class="bi bi-play-circle-fill ms-3 play-pause-icon"
                       viewBox="0 0 16 16"
-                      id="svgCrs"
+                      id="svgPlayPause"
                     >
                       <path
                         d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814z"
@@ -393,7 +393,7 @@
                   fill="green"
                   class="bi bi-play-circle-fill ms-3 d-none d-md-inline play-pause-icon"
                   viewBox="0 0 16 16"
-                  id="svgCrs"
+                  id="svgPlayPause"
                 >
                   <path
                     d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814z"
@@ -444,21 +444,21 @@
                 <div class="col-12 col-md-8 text-white">
                   <h2 class="ms-2">Popolari</h2>
                 </div>
-                <div class="col-12 col-md-4 d-none d-md-block text-white">
+                <div class="col-12 col-lg-4 d-none   d-lg-block text-white">
                   <h2>Brani che ti piacciono</h2>
                 </div>
               </div>
-              <div class="row text-white">
-                <div class="col-md-4 col-xs-10 mt-3">
-                  <ul class="list-unstyled ms-4" id="trackList">
+              <div class="row text-white d-flex align-items-stretch">
+                <div class="col-md-6 col-lg-4 col-xs-10 mt-3 d-flex flex-column">
+                  <ul class="list-unstyled ms-4 flex-grow-1" id="trackList">
                     <li class="li-container">
-                      <a href="#"class="text-decoration-none text-white" >
-                      <span>
+                      <a href="#"class="text-decoration-none text-white d-flex align-items-center" >
+                      <span class="d-flex align-items-center nowrap-text">
                         1
-                        <img width="40" alt="" class="ms-2" id="ImgCanzone1" />
+                        <img width="40" alt="" class="ms-2 " id="ImgCanzone1" />
                         <span id="textCanzoneArtist1"></span>
                       </span>
-                      <span class="d-md-none d-block icon-position">
+                      <span class="d-md-none d-block icon-position ms-auto">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="18"
@@ -476,12 +476,12 @@
                     </a>
                     </li>
                     <li class="li-container">
-                      <a href="#"class="text-decoration-none text-white" >
-                      <span
+                      <a href="#"class="text-decoration-none text-white d-flex align-items-center" >
+                      <span class="d-flex align-items-center nowrap-text"
                         >2<img width="40" alt="" class="ms-2 mt-2" id="ImgCanzone2" />
                         <span id="textCanzoneArtist2"></span
                       ></span>
-                      <span class="d-md-none d-block icon-position">
+                      <span class="d-md-none d-block icon-position ms-auto">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="18"
@@ -499,12 +499,12 @@
                       </a>
                     </li>
                     <li class="li-container">
-                      <a href="#"class="text-decoration-none text-white" >
-                      <span
+                      <a href="#"class="text-decoration-none text-white d-flex align-items-center" >
+                      <span class="d-flex align-items-center nowrap-text"
                         >3<img width="40" alt="" class="ms-2 mt-2" id="ImgCanzone3" />
                         <span id="textCanzoneArtist3"></span
                       ></span>
-                      <span class="d-md-none d-block icon-position">
+                      <span class="d-md-none d-block icon-position ms-auto">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="18"
@@ -522,12 +522,12 @@
                       </a>
                     </li>
                     <li class="li-container">
-                      <a href="#"class="text-decoration-none text-white" >
-                      <span
+                      <a href="#"class="text-decoration-none text-white d-flex align-items-center" >
+                      <span class="d-flex align-items-center nowrap-text"
                         >4<img width="40" alt="" class="ms-2 mt-2" id="ImgCanzone4" />
                         <span id="textCanzoneArtist4"></span
                       ></span>
-                      <span class="d-md-none d-block icon-position">
+                      <span class="d-md-none d-block icon-position ms-auto">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="18"
@@ -545,12 +545,12 @@
                       </a>
                     </li>
                     <li class="li-container">
-                      <a href="#"class="text-decoration-none text-white" >
-                      <span
+                      <a href="#"class="text-decoration-none text-white d-flex align-items-center" >
+                      <span class="d-flex align-items-center nowrap-text"
                         >5<img width="40" alt="" class="ms-2 mt-2" id="ImgCanzone5" />
                         <span id="textCanzoneArtist5"></span
                       ></span>
-                      <span class="d-md-none d-block icon-position">
+                      <span class="d-md-none d-block icon-position ms-auto">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="18"
@@ -569,9 +569,9 @@
                     </li>
                   </ul>
                 </div>
-                <div class="col-md-4 d-none d-md-block">
-                  <ul class="list-unstyled mt-4 text-secondary">
-                    <li class="d-flex justify-content-between mt-3">
+                <div class="col-md-6 col-lg-4 co-xs-6 d-none d-md-block d-flex flex-column">
+                  <ul class="list-unstyled mt-4 text-secondary flex-grow-1">
+                    <li class="d-flex justify-content-between mt-3 nowrap-text">
                       <span id="rankArtistCanzone1">276.616.912</span>
                       <span id="tempoCanzone1">3:18</span>
                     </li>
@@ -593,9 +593,9 @@
                     </li>
                   </ul>
                 </div>
-                <div class="col-4 mt-4">
+                <div class="col-4 mt-4 d-flex flex-column d-none d-lg-block">
                   <div class="">
-                    <div class="card bg-transparent border-0 d-none d-md-block">
+                    <div class="card bg-transparent border-0 d-none d-md-block flex-grow-1">
                       <div class="card-body px-0">
                         <div class="text-white">
                           <h7>
@@ -603,6 +603,7 @@
                               src="https://images.pexels.com/photos/810775/pexels-photo-810775.jpeg?auto=compress&cs=tinysrgb&w=600"
                               alt="Charlie Hookham"
                               width="40"
+                              height="38"
                               id="braniLikes"
                             /><span class="ms-2">Hai messo Mi piace a 11 brani</span></h7
                           >
@@ -788,7 +789,7 @@
                 fill="currentColor"
                 class="bi bi-play-fill"
                 viewBox="0 0 16 16"
-                id="svgCrs"
+                id="svgPlayPause"
               >
                 <path
                   d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"
@@ -868,14 +869,15 @@
               </svg>
             </button>
 
-            <button onclick="playPauseTrack()" class="btn btn-light rounded-circle">
+            <button onclick="playPauseTrack(this)" class="btn btn-light rounded-circle play-pause-button">
               <svg
                 data-encore-id="icon"
                 role="img"
                 aria-hidden="true"
                 viewBox="0 0 16 16"
-                class="Svg-sc-ytk21e-0 dYnaPI d-flex justify-content-center align-items-center"
+                class="Svg-sc-ytk21e-0 dYnaPI d-flex justify-content-center align-items-center play-pause-icon"
                 width="20px"
+                height="20px"
                 fill="currentColor"
                 id="play-pause"
               >
@@ -918,13 +920,13 @@
           <div class="d-flex flex-column justify-content-between">
             <div class="d-flex justify-content-between align-items-center">
               <p id="current-time" class="m-0 text-white">0:00</p>
-              <p id="duration" class="m-0 text-white">2:30</p>
+              <p id="duration" class="m-0 text-white">0:30</p>
             </div>
             <input id="progress" type="range" value="0" min="0" max="100" />
           </div>
         </div>
         <div class="col-3 d-flex justify-content-end align-items-center">
-          <button class="btn btn-transparent mx-2 p-0">
+          <button class="btn btn-transparent mx-2 p-0 d-none d-xl-block">
             <svg
               data-encore-id="icon"
               role="img"
@@ -939,7 +941,7 @@
               ></path>
             </svg>
           </button>
-          <button class="btn btn-transparent mx-2 p-0">
+          <button class="btn btn-transparent mx-2 p-0 d-none d-lg-block">
             <svg
               data-encore-id="icon"
               role="img"
@@ -992,7 +994,7 @@
           </button>
           <input id="volume" type="range" value="1" min="0" max="1" step="0.01" />
 
-          <button class="btn btn-transparent mx-2 p-0">
+          <button class="btn btn-transparent mx-2 p-0 d-none d-xl-block">
             <svg
               data-encore-id="icon"
               role="img"
@@ -1010,7 +1012,7 @@
               ></path>
             </svg>
           </button>
-          <button class="btn btn-transparent mx-2 p-0">
+          <button class="btn btn-transparent mx-2 p-0 d-none d-xxl-block">
             <svg
               data-encore-id="icon"
               role="img"
