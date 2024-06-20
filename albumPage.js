@@ -221,28 +221,6 @@ let isPlaying = false;
 let audio = new Audio();
 let tracks = [];
 
-async function fetchTracks() {
-  try {
-    let response = await fetch("https://deezerdevs-deezer.p.rapidapi.com/search?q=eminem", {
-      method: "GET",
-      headers: {
-        "x-rapidapi-key": "488a8ebce0msh914112a61b3a6a1p19c0e4jsn3acc13a47a88",
-        "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
-      },
-    });
-    let data = await response.json();
-    tracks = data.data.map((track) => ({
-      title: track.title,
-      artist: track.artist.name,
-      src: track.preview,
-      albumArt: track.album.cover_medium,
-    }));
-    loadTrack(currentTrackIndex);
-  } catch (error) {
-    console.error("Errore nel recupero delle tracce:", error);
-  }
-}
-
 function loadTrack(index) {
   audio.src = tracks[index].src;
   document.querySelectorAll(".track-title").forEach((el) => (el.innerText = tracks[index].title));
