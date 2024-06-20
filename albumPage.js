@@ -1,7 +1,8 @@
 const params = new URLSearchParams(window.location.search);
 const albumId = params.get("albumId");
 
-const URL = "https://striveschool-api.herokuapp.com/api/deezer/album/" + albumId;
+const URL =
+  "https://striveschool-api.herokuapp.com/api/deezer/album/" + albumId;
 
 function convertitoreDurationASecondi(duration) {
   const minuti = Math.floor(duration / 60);
@@ -64,7 +65,13 @@ fetch(URL, {
       row.classList.add("row", "d-flex", "align-items-center");
 
       const col1 = document.createElement("div");
-      col1.classList.add("col-1", "d-flex", "justify-content-end", "d-none", "d-sm-flex");
+      col1.classList.add(
+        "col-1",
+        "d-flex",
+        "justify-content-end",
+        "d-none",
+        "d-sm-flex"
+      );
 
       const songNumber = document.createElement("p");
       songNumber.innerText = i;
@@ -88,18 +95,38 @@ fetch(URL, {
         previewCanzone.src = song.preview;
         previewCanzone.play();
         progressBarPlayer();
+
+        /* funzione per creare il nostro background */
+        const imgThief = coverAlbum.src;
+        const colorThief = new ColorThief();
+        if (imgThief.complete) {
+          coloreDomimante = colorThief.getColor(imgThief);
+          console.log("coloreDomimante");
+        }
       });
 
       const nomeArtista = document.createElement("p");
       nomeArtista.innerText = song.artist.name;
 
       const col3 = document.createElement("div");
-      col3.classList.add("col-2", "d-flex", "justify-content-end", "d-none", "d-sm-flex");
+      col3.classList.add(
+        "col-2",
+        "d-flex",
+        "justify-content-end",
+        "d-none",
+        "d-sm-flex"
+      );
       const riproduzioni = document.createElement("p");
       riproduzioni.innerText = song.rank.toLocaleString();
 
       const col4 = document.createElement("div");
-      col4.classList.add("col-2", "d-flex", "justify-content-end", "d-none", "d-sm-flex");
+      col4.classList.add(
+        "col-2",
+        "d-flex",
+        "justify-content-end",
+        "d-none",
+        "d-sm-flex"
+      );
       const durataCanzone = document.createElement("p");
       //qui genero il bottone per il sottomenù presente solo negli schermi piccoli
       const colSvg = document.createElement("div");
