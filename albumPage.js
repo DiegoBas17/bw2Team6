@@ -212,7 +212,7 @@ window.addEventListener("DOMContentLoaded", () => {
     document.getElementById("current-time").innerText = formatTime(audio.currentTime);
     document.getElementById("duration").innerText = formatTime(audio.duration);
   };
-  const playButton = document.getElementById("playButton");
+  const playButton = document.getElementById("playButtonVerde");
   playButton.addEventListener("click", () => {
     riproduzioneAlbum();
   });
