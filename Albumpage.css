@@ -53,6 +53,10 @@ footer img {
   background-color: #555;
 }
 
+.pointer {
+  cursor: pointer;
+}
+
 @media (min-width: 768px) {
   #coverAlbum {
     width: 100%;
