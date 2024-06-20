@@ -204,8 +204,7 @@ background: linear-gradient(180deg, rgba(255,255,255,0.14329481792717091) 59%, r
   
 
   .player-content svg {
-    width: 20px;
-    height: 20px;
+    
     margin: 0 5px; 
   }
   .icon-position {
@@ -217,6 +216,7 @@ background: linear-gradient(180deg, rgba(255,255,255,0.14329481792717091) 59%, r
   .li-container {
     position: relative;
   }
+  
 }
 
 /* Stili per il player  */
@@ -231,4 +231,9 @@ footer img {
 
 #main-container {
   height: 90vh;
+}
+#btnFollowing{
+  border: solid 0.5px rgb(92, 92, 92);
+  opacity: 0.9;
+
 }
