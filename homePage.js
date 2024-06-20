@@ -347,7 +347,7 @@ function convertitoreDurationASecondi(duration) {
   const tempo = minuti + ":" + (secondi < 10 ? "0" : "") + secondi;
   return tempo;
 }
-/* parte per la scg search */
+/* parte per la svg search */
 document
   .getElementById("searchLink")
   .addEventListener("click", function (event) {
@@ -355,6 +355,47 @@ document
     const barraRicercaHome = document.getElementById("barraRicercaHome");
     barraRicercaHome.classList.toggle("active");
 
+    const testoMobileCerca = document.getElementById("testoMobileCerca");
+    testoMobileCerca.classList.toggle("active");
+
+    const contenitoreMobileCerca = document.getElementById(
+      "contenitoreMobileCerca"
+    );
+    contenitoreMobileCerca.classList.toggle("active");
+
     const iconWrapper = document.querySelector(".iconWrapperSearch");
     iconWrapper.classList.toggle("active");
   });
+
+document
+  .getElementById("barraRicercaHomeInput")
+  .addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+      const query = event.target.value;
+      if (query) {
+        searchInput(query);
+      }
+    }
+  });
+function searchInput(objSearch) {
+  fetch(
+    `https://striveschool-api.herokuapp.com/api/deezer/search?q=${objSearch}`,
+    {
+      headers: {
+        "x-rapidapi-key": "488a8ebce0msh914112a61b3a6a1p19c0e4jsn3acc13a47a88",
+        "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
+      },
+    }
+  )
+    .then((resp) => {
+      if (resp.ok) {
+        return resp.json();
+      } else {
+        throw `Errore ${resp.status} : errore nella creazione dell'annuncio`;
+      }
+    })
+    .then((objSearch) => {
+      console.log(objSearch);
+    })
+    .catch((err) => alert(err));
+}
