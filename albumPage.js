@@ -155,6 +155,16 @@ const riproduzioneAlbum = () => {
       previewCanzone.src = album.tracks.data[0].preview;
 
       previewCanzone.play();
+      //con questo eventListner lo slider si aggiorna dinamicamente al tempo di progressione della traccia audio
+      previewCanzone.addEventListener("timeupdate", function () {
+        document.getElementById("progress").value = (previewCanzone.currentTime / previewCanzone.duration) * 100;
+        document.getElementById("current-time").innerText = formatTime(previewCanzone.currentTime);
+        document.getElementById("duration").innerText = formatTime(previewCanzone.duration);
+      });
+
+      document.getElementById("progress").addEventListener("input", function () {
+        previewCanzone.currentTime = previewCanzone.duration * (this.value / 100);
+      });
     });
 };
 
@@ -178,10 +188,15 @@ const progressBarPlayer = () => {
     }
   }, 1000);
 };
+
+const aggiornamentoProgressBarSlider = () => {
+  document.getElementById("progress").value = (audio.currentTime / audio.duration) * 100;
+  document.getElementById("current-time").innerText = formatTime(audio.currentTime);
+  document.getElementById("duration").innerText = formatTime(audio.duration);
+};
 const playButton = document.getElementById("playButton");
 playButton.addEventListener("click", () => {
   riproduzioneAlbum();
-  progressBarPlayer();
 });
 
 
