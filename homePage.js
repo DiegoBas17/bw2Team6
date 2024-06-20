@@ -317,36 +317,6 @@ function creaPlaylistCardMobile(objPlaylist) {
 }
 
 window.addEventListener("DOMContentLoaded", idRandomAnnunciForFetch);
-
-/* footer */
-/* const tempoDiRiproduzione = document.getElementById("tempoDiRiproduzione");
-const progressBar = document.getElementById("progress-bar");
-const playButton = document.getElementById("playButtonMusic");
-let currentTime = 0;
-let maxTime = 30;
-
-playButton.addEventListener("click", function () {
-  currentTime = 0;
-  progressBar.style.width = "0%";
-  tempoDiRiproduzione.textContent = "0:00";
-
-  const interval = setInterval(() => {
-    currentTime++;
-    let percentage = (currentTime / maxTime) * 100;
-    progressBar.style.width = percentage + "%";
-    tempoDiRiproduzione.textContent = convertitoreDurationASecondi(currentTime);
-
-    if (currentTime === maxTime) {
-      clearInterval(interval);
-    }
-  }, 1000);
-});
-function convertitoreDurationASecondi(duration) {
-  const minuti = Math.floor(duration / 60);
-  const secondi = duration % 60;
-  const tempo = minuti + ":" + (secondi < 10 ? "0" : "") + secondi;
-  return tempo;
-} */
 let currentTrackIndex = 0;
 let isPlaying = false;
 let audio = new Audio();
