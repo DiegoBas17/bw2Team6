@@ -502,7 +502,7 @@ function searchInput(objSearch) {
 /* funzione per creare una lista dinamica */
 const navPlaylistArray = [
   25, 50, 90, 2400, 8080, 2465, 26, 13, 656, 9357743, 543563, 266568, 2665,
-  2234998, 22349984, 13456, 1345756, 66654346,
+  2234998, 22349984, 13456, 1345756, 66654346, 52, 54, 55, 56, 58, 60,
 ];
 const listaNavDinamica = document.getElementById("listaNavDinamica");
 
