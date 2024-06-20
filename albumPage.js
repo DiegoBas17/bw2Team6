@@ -76,13 +76,13 @@ fetch(URL, {
       nomeCanzone.innerText = song.title;
 
       nomeCanzone.addEventListener("click", () => {
-        const imgPlayer = document.getElementById("immagine-player");
+        const imgPlayer = document.getElementById("album-art");
         imgPlayer.src = album.cover_small;
 
-        const nomeBrano = document.getElementById("nome-brano-player");
+        const nomeBrano = document.getElementById("track-title");
         nomeBrano.innerText = song.title;
 
-        const nomeArtista = document.getElementById("nome-artista-player");
+        const nomeArtista = document.getElementById("track-artist");
         nomeArtista.innerText = song.artist.name;
         const previewCanzone = document.getElementById("audioPlayer");
         previewCanzone.src = song.preview;
@@ -142,13 +142,13 @@ const riproduzioneAlbum = () => {
       }
     })
     .then((album) => {
-      const imgPlayer = document.getElementById("immagine-player");
+      const imgPlayer = document.getElementById("album-art");
       imgPlayer.src = album.cover_small;
 
-      const nomeBrano = document.getElementById("nome-brano-player");
+      const nomeBrano = document.getElementById("track-title");
       nomeBrano.innerText = album.tracks.data[0].title;
 
-      const nomeArtista = document.getElementById("nome-artista-player");
+      const nomeArtista = document.getElementById("track-artist");
       nomeArtista.innerText = album.tracks.data[0].artist.name;
 
       const previewCanzone = document.getElementById("audioPlayer");
@@ -159,8 +159,8 @@ const riproduzioneAlbum = () => {
 };
 
 const progressBarPlayer = () => {
-  const tempoDiRiproduzione = document.getElementById("tempoDiRiproduzione");
-  const progressBar = document.getElementById("progress-bar");
+  const tempoDiRiproduzione = document.getElementById("current-time");
+  const progressBar = document.getElementById("progress");
   let currentTime = 0;
   let maxTime = 30;
   progressBar.style.width = "0%";
