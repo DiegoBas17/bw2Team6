@@ -65,13 +65,11 @@ const playlistContainer = document.getElementById("playlistContainer");
 
 function createPlaylistCard(objPlaylist) {
   const playlistCard = document.createElement("div");
-  playlistCard.classList.add(
-    "col-6",
-    "col-sm-6",
-    "col-lg-4",
-    "bg-dark",
-    "card-hover"
-  );
+  playlistCard.classList.add("col-6", "col-sm-6", "col-lg-4", "card-hover");
+
+  const divBAckground = document.createElement("div");
+  divBAckground.classList.add("bg-dark");
+
   playlistCard.style.cursor = "pointer";
   playlistCard.addEventListener("click", () => {
     console.log(`Immagine cliccata: ${objPlaylist.title}`);
@@ -87,8 +85,10 @@ function createPlaylistCard(objPlaylist) {
   title.innerHTML = objPlaylist.title;
   title.classList.add("d-inline", "ms-2");
 
-  playlistCard.appendChild(img);
-  playlistCard.appendChild(title);
+  divBAckground.appendChild(img);
+  divBAckground.appendChild(title);
+
+  playlistCard.appendChild(divBAckground);
   playlistContainer.appendChild(playlistCard);
 }
 
@@ -120,15 +120,10 @@ const playlistContainer2 = document.getElementById("cotenitoreCarte2");
 
 function createCardAltro(objPlaylist) {
   const card = document.createElement("div");
-  card.classList.add(
-    "card",
-    "border-0",
-    "card-hover",
-    "col-md-3",
-    "col-lg-3",
-    "col-xl-2",
-    "col-6"
-  );
+  card.classList.add("col-md-3", "col-lg-3", "col-xl-2", "col-6");
+
+  const divBackground = document.createElement("div");
+  divBackground.classList.add("card", "border-0", "card-hover", "bg-dark");
 
   const imgContainer = document.createElement("div");
   imgContainer.classList.add("position-relative");
@@ -143,7 +138,7 @@ function createCardAltro(objPlaylist) {
   });
 
   const playBtn = document.createElement("button");
-  playBtn.innerHTML = `<svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 16 16" width="20px" height="20px" class="Svg-sc-ytk21e-0 dYnaPI"><path d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288V1.713z"></path></svg>`;
+  playBtn.innerHTML = `<svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 16 16" width="30px" height="30px" class="Svg-sc-ytk21e-0 dYnaPI"><path d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288V1.713z"></path></svg>`;
   playBtn.classList.add(
     "btn",
     "rounded-circle",
@@ -178,8 +173,9 @@ function createCardAltro(objPlaylist) {
 
   cardBody.appendChild(cardTitle);
   cardBody.appendChild(cardText);
-  card.appendChild(imgContainer);
-  card.appendChild(cardBody);
+  divBackground.appendChild(imgContainer);
+  divBackground.appendChild(cardBody);
+  card.appendChild(divBackground);
 
   card.addEventListener("mouseover", () => {
     playBtn.classList.remove("d-none");
@@ -351,3 +347,11 @@ function convertitoreDurationASecondi(duration) {
   const tempo = minuti + ":" + (secondi < 10 ? "0" : "") + secondi;
   return tempo;
 }
+/* parte per la scg search */
+document
+  .getElementById("searchLink")
+  .addEventListener("click", function (event) {
+    event.preventDefault();
+    const iconWrapper = document.querySelector(".icon-wrapper");
+    iconWrapper.classList.toggle("active");
+  });

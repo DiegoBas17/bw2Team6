@@ -188,3 +188,29 @@ background: linear-gradient(180deg, rgba(255,255,255,0.14329481792717091) 59%, r
     position: relative;
   }
 }
+/* parte per la scg search */
+.icon-wrapper {
+  position: relative;
+  width: 18px;
+  height: 18px;
+}
+
+.search-icon,
+.search-active-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 0.3s ease;
+}
+
+.search-active-icon {
+  opacity: 0;
+}
+
+.icon-wrapper.active .search-icon {
+  opacity: 0;
+}
+
+.icon-wrapper.active .search-active-icon {
+  opacity: 1;
+}
