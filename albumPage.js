@@ -36,7 +36,7 @@ window.addEventListener("DOMContentLoaded", () => {
       //inserisco dati dell'album dinamicamente nel banner in alto
       const coverAlbum = document.getElementById("coverAlbum");
       coverAlbum.src = album.cover_medium;
-      coverAlbum.crossOrigin = "Anonymous";
+      coverAlbum.crossOrigin = "Anonymous"; 
 
       /* funzione per creare il nostro background */
       const imgThief = coverAlbum;
