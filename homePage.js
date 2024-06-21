@@ -483,7 +483,7 @@ function creazioneListaDinamica(objPlaylist) {
 
   const a = document.createElement("a");
   a.classList.add("nav-link", "text-white");
-  a.href = "#";
+  a.href = `./searchAndPlaylist.html?idPlaylist=${objPlaylist}`;
   a.textContent = objPlaylist.title;
 
   li.appendChild(a);
@@ -491,8 +491,8 @@ function creazioneListaDinamica(objPlaylist) {
 }
 
 function fetchPlaylists() {
-  navPlaylistArray.forEach((idAlbums) => {
-    fetch(`https://deezerdevs-deezer.p.rapidapi.com/playlist/${idAlbums}`, {
+  navPlaylistArray.forEach((idPlaylist) => {
+    fetch(`https://deezerdevs-deezer.p.rapidapi.com/playlist/${idPlaylist}`, {
       headers: {
         "x-rapidapi-key": "488a8ebce0msh914112a61b3a6a1p19c0e4jsn3acc13a47a88",
         "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
@@ -505,9 +505,9 @@ function fetchPlaylists() {
           throw `Errore ${resp.status} : errore nella creazione dell'annuncio`;
         }
       })
-      .then((objAlbum) => {
-        console.log(objAlbum);
-        creazioneListaDinamica(objAlbum);
+      .then((objPlaylist) => {
+        console.log(objPlaylist);
+        creazioneListaDinamica(objPlaylist);
       })
       .catch((err) => alert(err));
   });
