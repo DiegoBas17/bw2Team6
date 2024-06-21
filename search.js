@@ -11,9 +11,9 @@ function convertitoreDurationASecondi(duration) {
 }
 
 function formatTime(number) {
-  //funzione che mi formatta il numero in minuti e secondi
-  let str = number.toString().padStart(4, "0"); // Assicurati che sia almeno di 4 cifre
-  return str.slice(0, 2) + ":" + str.slice(2);
+  const minutes = Math.floor(number / 60);
+  const seconds = Math.floor(number % 60);
+  return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
 }
 
 const riproduzioneAlbum = () => {
@@ -25,7 +25,6 @@ const riproduzioneAlbum = () => {
   })
     .then((resp) => {
       if (resp.ok) {
-        console.log(resp);
         return resp.json();
       } else {
         throw `Errore ${resp.status} : errore nella creazione dell'annuncio`;
@@ -47,14 +46,13 @@ const riproduzioneAlbum = () => {
       previewCanzone.play();
 
       //ad ogni secondo che passa viene aggiornata la progressbar e i secondi della traccia
-
       previewCanzone.addEventListener("timeupdate", function () {
         document.getElementById("progress").value = (previewCanzone.currentTime / previewCanzone.duration) * 100;
         document.getElementById("current-time").innerText = formatTime(previewCanzone.currentTime);
         document.getElementById("duration").innerText = formatTime(previewCanzone.duration);
       });
 
-      //al movimento dello slider simanda a vanti o indietro la canzone
+      //al movimento dello slider si manda avanti o indietro la canzone
       document.getElementById("progress").addEventListener("input", function () {
         previewCanzone.currentTime = previewCanzone.duration * (this.value / 100);
       });
@@ -70,34 +68,26 @@ window.addEventListener("DOMContentLoaded", () => {
   })
     .then((resp) => {
       if (resp.ok) {
-        console.log(resp);
         return resp.json();
       } else {
         throw `Errore ${resp.status} : errore nella creazione dell'annuncio`;
       }
     })
     .then((search) => {
-      console.log(search);
-
       const coverAlbum = document.getElementById("coverAlbum");
       coverAlbum.src = search.data[0].artist.picture_medium;
       coverAlbum.crossOrigin = "Anonymous";
 
-      /* funzione per creare il nostro background */
       const imgThief = coverAlbum;
       const colorThief = new ColorThief();
       if (imgThief.complete) {
         const coloreDomimante = colorThief.getColor(imgThief);
-        console.log(coloreDomimante);
         const main = document.getElementsByTagName("main")[0];
         main.style.backgroundImage = `linear-gradient(to bottom, rgb(${coloreDomimante[0]}, ${coloreDomimante[1]}, ${coloreDomimante[2]}), black 50%)`;
       }
 
       const titoloAlbum = document.getElementById("titoloAlbum");
       titoloAlbum.innerText = search.data[0].artist.name;
-
-      /* const imgArtista = document.getElementById("immagineArtistaAlbum");
-      imgArtista.src = playlist.creator; */
 
       const numeroBrani = document.getElementById("numeroBrani");
       numeroBrani.innerText = search.data.length + " Brani";
@@ -120,7 +110,6 @@ window.addEventListener("DOMContentLoaded", () => {
         const nomeCanzone = document.createElement("p");
         nomeCanzone.classList.add("mb-1", "text-light", "pointer");
         nomeCanzone.innerText = song.title;
-        //Funzione che parte al click delle canzoni dell'album per riprodurle e aggiornare il player
 
         nomeCanzone.addEventListener("click", () => {
           const imgPlayer = document.getElementById("album-art");
@@ -128,28 +117,29 @@ window.addEventListener("DOMContentLoaded", () => {
 
           const nomeBrano = document.getElementById("track-title");
           nomeBrano.innerText = song.title;
+          const nomeBrano1 = document.getElementById("track-title-mobile");
+          nomeBrano1.innerText = song.title;
+
 
           const nomeArtista = document.getElementById("track-artist");
           nomeArtista.innerText = song.artist.name;
+          const nomeArtista1 = document.getElementById("track-artist-mobile");
+          nomeArtista1.innerText = song.artist.name;
+
           const previewCanzone = document.getElementById("audioPlayer");
           previewCanzone.src = song.preview;
           previewCanzone.play();
 
-          //ad ogni secondo che passa viene aggiornata la progressbar e i secondi della traccia
           previewCanzone.addEventListener("timeupdate", function () {
             document.getElementById("progress").value = (previewCanzone.currentTime / previewCanzone.duration) * 100;
             document.getElementById("current-time").innerText = formatTime(previewCanzone.currentTime);
             document.getElementById("duration").innerText = formatTime(previewCanzone.duration);
           });
 
-          //al movimento dello slider simanda a vanti o indietro la canzone
-
           document.getElementById("progress").addEventListener("input", function () {
             previewCanzone.currentTime = previewCanzone.duration * (this.value / 100);
           });
         });
-        const previewCanzone = document.getElementById("audioPlayer");
-        //seleziono i tasto play del player
 
         const nomeArtista = document.createElement("p");
         nomeArtista.innerText = song.album.title;
@@ -162,7 +152,6 @@ window.addEventListener("DOMContentLoaded", () => {
         const col4 = document.createElement("div");
         col4.classList.add("col-2", "d-flex", "justify-content-end", "d-none", "d-sm-flex");
         const durataCanzone = document.createElement("p");
-        //qui genero il bottone per il sottomenù presente solo negli schermi piccoli
         const colSvg = document.createElement("div");
         colSvg.classList.add("col-1", "d-sm-none");
         const buttonOptions = document.createElement("button");
@@ -187,29 +176,46 @@ window.addEventListener("DOMContentLoaded", () => {
     .catch((err) => console.log(err));
 
   const playButton = document.getElementById("playButtonVerde");
-  playButton.addEventListener("click", riproduzioneAlbum);
+  playButton.addEventListener("click", () => {
+    riproduzioneAlbum();
+  });
 
-  //********************PLAYER DEFAULT********************** */
+  const audio = document.getElementById("audioPlayer");
+  const buttonPlayerPlayPause = document.getElementById("play-pause");
+  const buttonPlayerPlayPause1 = document.getElementById("play-pause-mobile");
+  const playIcon = document.getElementById("play-icon");
+  const pauseIcon = document.getElementById("pause-icon");
 
-  let audio = document.getElementById("audioPlayer");
-  const buttonPlayerPlayPause = document.getElementById("buttonPlayerPlayPause");
+document.getElementById('volume').addEventListener('input', function() {
+  audio.volume = this.value;
+});
 
-  function formatTime(seconds) {
-    const minutes = Math.floor(seconds / 60);
-    const sec = Math.floor(seconds % 60);
-    return `${minutes}:${sec < 10 ? "0" : ""}${sec}`;
+function formatTime(seconds) {
+  const minutes = Math.floor(seconds / 60);
+  const sec = Math.floor(seconds % 60);
+  return `${minutes}:${sec < 10 ? "0" : ""}${sec}`;
+}
+
+function togglePlayPause() {
+  if (audio.paused) {
+    audio.play();
+    playIcon.classList.add("d-none");
+    pauseIcon.classList.remove("d-none");
+  } else {
+    audio.pause();
+    playIcon.classList.remove("d-none");
+    pauseIcon.classList.add("d-none");
   }
-  function togglePlayPause() {
-    if (audio.paused) {
-      audio.play();
-      button.textContent = "Pause";
-    } else {
-      audio.pause();
-      button.textContent = "Play";
-    }
-  }
+}
 
+buttonPlayerPlayPause.addEventListener("click", togglePlayPause);
+buttonPlayerPlayPause1.addEventListener("click", togglePlayPause);
+});
+
+//////////
   buttonPlayerPlayPause.addEventListener("click", togglePlayPause);
+  buttonPlayerPlayPause1.addEventListener("click", togglePlayPause);
+  
 
   /* parte per la svg search */ /* da riportare in tutte le altre pagine */
   document.getElementById("searchLink").addEventListener("click", function (event) {
@@ -292,4 +298,3 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   }
   fetchPlaylists();
-});
