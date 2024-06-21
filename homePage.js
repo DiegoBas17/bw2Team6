@@ -378,10 +378,13 @@ document.getElementById("progress").addEventListener("input", function () {
 });
 
 audio.addEventListener("timeupdate", function () {
-  document.getElementById("progress").value = (audio.currentTime / audio.duration) * 100;
-  document.getElementById("current-time").innerText = formatTime(audio.currentTime);
-  document.getElementById("duration").innerText = formatTime(audio.duration);
+  if (isPlaying) {
+    document.getElementById('progress').value = (audio.currentTime / audio.duration) * 100;
+    document.getElementById('current-time').innerText = formatTime(audio.currentTime);
+    document.getElementById('duration').innerText = "0:30"; /* formatTime(audio.duration); */
+  }
 });
+
 
 document.getElementById("volume").addEventListener("input", function () {
   audio.volume = this.value;
