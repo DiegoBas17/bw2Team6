@@ -255,3 +255,12 @@ footer img {
   min-height: 600px; 
  
 }
+#trackList {
+  font-family: 'Arial', sans-serif; 
+}
+
+
+#trackList li {
+  font-size: 17px; 
+  
+}
