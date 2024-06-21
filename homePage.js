@@ -514,3 +514,11 @@ function fetchPlaylists() {
   });
 }
 fetchPlaylists();
+/* nascondi annuncio */
+document
+  .getElementById("nascondiAnnuncio")
+  .addEventListener("click", function (event) {
+    event.preventDefault();
+    document.getElementById("heroAnnuncio").classList.remove("d-sm-block");
+    document.getElementById("heroAnnuncio").classList.add("d-none");
+  });
