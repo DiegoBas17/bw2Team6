@@ -418,7 +418,7 @@ document.getElementById("barraRicercaHomeInput").addEventListener("keydown", fun
   if (event.key === "Enter") {
     const query = event.target.value;
     if (query) {
-      searchInput(query);
+      window.location.assign(`./search.html?id=${query}`);
     }
   }
 });
