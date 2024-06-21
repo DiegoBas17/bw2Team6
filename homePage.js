@@ -58,6 +58,7 @@ buttonPlayAnnuncioHomePage.addEventListener("click", () => {
 /* sezione per la parte playlist */
 const playlistArray = [25, 50, 90, 2400, 8080, 2465]; /* tesoro */
 const playlistContainer = document.getElementById("playlistContainer");
+
 function createPlaylistCard(objPlaylist) {
   const playlistCard = document.createElement("div");
   playlistCard.classList.add("col-6", "col-sm-6", "col-lg-4", "card-hover");
