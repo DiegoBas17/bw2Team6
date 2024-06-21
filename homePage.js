@@ -28,7 +28,7 @@ function idRandomAnnunciForFetch() {
 
   fetch(`https://striveschool-api.herokuapp.com/api/deezer/album/${id}`, {
     headers: {
-      "x-rapidapi-key": "488a8ebce0msh914112a61b3a6a1p19c0e4jsn3acc13a47a88",
+      "x-rapidapi-key": "29c0a4f314mshac4cba9bf78ad4cp17ff1cjsn5a53e9406430",
       "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
     },
   })
@@ -91,7 +91,7 @@ function createPlaylistCard(objPlaylist) {
 playlistArray.forEach((id) => {
   fetch(`https://deezerdevs-deezer.p.rapidapi.com/playlist/${id}`, {
     headers: {
-      "x-rapidapi-key": "488a8ebce0msh914112a61b3a6a1p19c0e4jsn3acc13a47a88",
+      "x-rapidapi-key": "29c0a4f314mshac4cba9bf78ad4cp17ff1cjsn5a53e9406430",
       "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
     },
   })
@@ -193,7 +193,7 @@ for (let i = 0; i < playlistArray2.length; i++) {
   const id = playlistArray2[i];
   fetch(`https://deezerdevs-deezer.p.rapidapi.com/playlist/${id}`, {
     headers: {
-      "x-rapidapi-key": "488a8ebce0msh914112a61b3a6a1p19c0e4jsn3acc13a47a88",
+      "x-rapidapi-key": "29c0a4f314mshac4cba9bf78ad4cp17ff1cjsn5a53e9406430",
       "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
     },
   })
@@ -321,7 +321,7 @@ async function fetchTracks() {
     let response = await fetch("https://deezerdevs-deezer.p.rapidapi.com/search?q=eminem", {
       method: "GET",
       headers: {
-        "x-rapidapi-key": "488a8ebce0msh914112a61b3a6a1p19c0e4jsn3acc13a47a88",
+        "x-rapidapi-key": "29c0a4f314mshac4cba9bf78ad4cp17ff1cjsn5a53e9406430",
         "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
       },
     });
@@ -425,7 +425,7 @@ document.getElementById("barraRicercaHomeInput").addEventListener("keydown", fun
 function searchInput(objSearch) {
   fetch(`https://striveschool-api.herokuapp.com/api/deezer/search?q=${objSearch}`, {
     headers: {
-      "x-rapidapi-key": "488a8ebce0msh914112a61b3a6a1p19c0e4jsn3acc13a47a88",
+      "x-rapidapi-key": "29c0a4f314mshac4cba9bf78ad4cp17ff1cjsn5a53e9406430",
       "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
     },
   })
@@ -455,7 +455,7 @@ function creazioneListaDinamica(objPlaylist) {
 
   const a = document.createElement("a");
   a.classList.add("nav-link", "text-white");
-  a.href = `./searchAndPlaylist.html?idPlaylist=${objPlaylist}`;
+  a.href = `./searchAndPlaylist.html?idPlaylist=${objPlaylist.id}`;
   a.textContent = objPlaylist.title;
 
   li.appendChild(a);
@@ -466,7 +466,7 @@ function fetchPlaylists() {
   navPlaylistArray.forEach((idPlaylist) => {
     fetch(`https://deezerdevs-deezer.p.rapidapi.com/playlist/${idPlaylist}`, {
       headers: {
-        "x-rapidapi-key": "488a8ebce0msh914112a61b3a6a1p19c0e4jsn3acc13a47a88",
+        "x-rapidapi-key": "29c0a4f314mshac4cba9bf78ad4cp17ff1cjsn5a53e9406430",
         "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
       },
     })

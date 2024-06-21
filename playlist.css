@@ -1,0 +1,183 @@
+#immagineArtistaAlbum {
+    height: 20px;
+  }
+  
+  body {
+    font-family: "Circular";
+  }
+  #playButtonVerde {
+    background-color: #1fdf64;
+    border: none;
+    text-align: center;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  /* sitli per player */
+  aside svg {
+    margin-right: 5px;
+  }
+  
+  footer img {
+    height: 58px;
+  }
+  
+  #main-container {
+    height: 90vh;
+  }
+  
+  /* stili per scrollbar contenuto main */
+  .divScroll {
+    width: 100%;
+    height: 90vh;
+    overflow-y: auto; /* Scorrimento solo verticale */
+    overflow-x: hidden; /* Nascondi lo scorrimento orizzontale */
+  }
+  
+  #style-2::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: transparent;
+  }
+  
+  #style-2::-webkit-scrollbar {
+    width: 12px;
+    background-color: transparent;
+  }
+  
+  #style-2::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #555;
+  }
+  
+  .pointer {
+    cursor: pointer;
+  }
+  
+  @media (min-width: 768px) {
+    #coverAlbum {
+      width: 100%;
+    }
+  }
+  @media (max-width: 767.98px) {
+    .navbar-bottom {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
+      background: rgb(255,255,255);
+  background: linear-gradient(180deg, rgba(255,255,255,0.14329481792717091) 59%, rgba(0,0,0,0.908000700280112) 90%);
+      z-index: 1000; /
+    }
+    .navbar-bottom .nav-item {
+      flex: 1;
+      text-align: center;
+    }
+   
+    .nav-container {
+      display: flex;
+      flex-direction: column;
+    }
+    .nav-item {
+      list-style: none;
+      margin-bottom: 10px;
+     padding: 0.5rem 1rem;
+    
+     
+  
+    }
+    .nav-link {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      color: white;
+      font-size: 12px;
+      padding: 8px 0;
+    }
+    .nav-link svg {
+      margin-bottom: 5px;
+    }
+  
+    .player-bottom {
+      position: fixed;
+      bottom: 100px; 
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    
+      z-index: 1100; 
+    }
+    .player-content {
+      width: 100%;
+      padding: 10px;
+      background-color: #282828; 
+      color: white;
+      text-align: center;
+     
+    }
+    
+  
+    .player-content svg {
+      
+      margin: 0 5px; 
+    }
+    .icon-position {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .li-container {
+      position: relative;
+    }
+  }
+  /* parte per la scg search */
+  
+  .iconWrapperSearch {
+    position: relative;
+    width: 18px;
+    height: 18px;
+  }
+  
+  .iconWrapperSearch .search-icon,
+  .iconWrapperSearch .search-active-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .iconWrapperSearch .search-active-icon {
+    opacity: 0;
+  }
+  
+  .iconWrapperSearch.active .search-icon {
+    opacity: 0;
+  }
+  
+  .iconWrapperSearch.active .search-active-icon {
+    opacity: 1;
+  }
+  #barraRicercaHome {
+    display: none;
+    
+  }
+  
+  #barraRicercaHome.active {
+    display: inline-block;
+    
+  } 
+  @media screen and (max-width: 576px){
+    #barraRicercaHome {
+      width: 90vw;
+      margin-right: 5%;
+    }
+  }
