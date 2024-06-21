@@ -347,18 +347,24 @@ function loadTrack(index) {
 }
 
 function playPauseTrack() {
- let icon = document.getElementById('play-icon');
-  
+  let icon = document.getElementById("play-icon");
+
   if (isPlaying) {
-      audio.pause();
-      isPlaying = false;
-      // Cambia l'icona a play
-      icon.setAttribute('d', 'M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814z');
+    audio.pause();
+    isPlaying = false;
+    // Cambia l'icona a play
+    icon.setAttribute(
+      "d",
+      "M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814z"
+    );
   } else {
-      audio.play();
-      isPlaying = true;
-      // Cambia l'icona a pausa
-      icon.setAttribute('d', 'M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.25 5C5.56 5 5 5.56 5 6.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C7.5 5.56 6.94 5 6.25 5m3.5 0c-.69 0-1.25.56-1.25 1.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C11 5.56 10.44 5 9.75 5"');
+    audio.play();
+    isPlaying = true;
+    // Cambia l'icona a pausa
+    icon.setAttribute(
+      "d",
+      'M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.25 5C5.56 5 5 5.56 5 6.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C7.5 5.56 6.94 5 6.25 5m3.5 0c-.69 0-1.25.56-1.25 1.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C11 5.56 10.44 5 9.75 5"'
+    );
   }
 }
 
@@ -380,12 +386,11 @@ document.getElementById("progress").addEventListener("input", function () {
 
 audio.addEventListener("timeupdate", function () {
   if (isPlaying) {
-    document.getElementById('progress').value = (audio.currentTime / audio.duration) * 100;
-    document.getElementById('current-time').innerText = formatTime(audio.currentTime);
-    document.getElementById('duration').innerText = "0:30"; /* formatTime(audio.duration); */
+    document.getElementById("progress").value = (audio.currentTime / audio.duration) * 100;
+    document.getElementById("current-time").innerText = formatTime(audio.currentTime);
+    document.getElementById("duration").innerText = "0:30"; /* formatTime(audio.duration); */
   }
 });
-
 
 document.getElementById("volume").addEventListener("input", function () {
   audio.volume = this.value;
@@ -462,7 +467,7 @@ function creazioneListaDinamica(objPlaylist) {
 
   const a = document.createElement("a");
   a.classList.add("nav-link", "text-white");
-  a.href = `./searchAndPlaylist.html?idPlaylist=${objPlaylist.id}`;
+  a.href = `./playlist.html?idPlaylist=${objPlaylist.id}`;
   a.textContent = objPlaylist.title;
 
   li.appendChild(a);
