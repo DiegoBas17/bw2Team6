@@ -102,7 +102,7 @@ ul {
   background-position: center;
 }
 .contens-inside {
-  margin-top: 35%;
+  margin-top: 50%;
 }
 #braniLikes {
   border-radius: 50%;
@@ -239,4 +239,8 @@ footer img {
   border: solid 0.5px rgb(92, 92, 92);
   opacity: 0.9;
 
+}
+#container{
+  min-height: 700px; /* Imposta l'altezza minima a 600px */
+ 
 }
