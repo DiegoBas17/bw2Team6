@@ -176,7 +176,8 @@ background: linear-gradient(180deg, rgba(255,255,255,0.14329481792717091) 59%, r
   
 } 
 @media screen and (max-width: 576px){
-  #barraRicercaHome input {
-    width: 88vw;
+  #barraRicercaHome {
+    width: 90vw;
+    margin-right: 5%;
   }
 }

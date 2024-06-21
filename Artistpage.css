@@ -277,7 +277,8 @@ footer img {
   
 } 
 @media screen and (max-width: 576px){
-  #barraRicercaHome input {
-    width: 88vw;
+  #barraRicercaHome {
+    width: 90vw;
+    margin-right: 5%;
   }
 }
