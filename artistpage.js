@@ -46,6 +46,8 @@ document.addEventListener("DOMContentLoaded", function() {
     })
     .then((tracklist) => {
       console.log(tracklist);
+      //prova array
+      
        // Mappa i dati delle tracce in un array di oggetti traccia
       tracks = tracklist.data.map(track => ({
         title: track.title,
