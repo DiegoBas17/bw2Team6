@@ -45,7 +45,7 @@ window.addEventListener("DOMContentLoaded", () => {
         const coloreDomimante = colorThief.getColor(imgThief);
         console.log(coloreDomimante);
         const main = document.getElementsByTagName("main")[0];
-        main.style.backgroundImage = `linear-gradient(to bottom, rgb(${coloreDomimante[0]}, ${coloreDomimante[1]}, ${coloreDomimante[2]}), black)`;
+        main.style.backgroundImage = `linear-gradient(to bottom, rgb(${coloreDomimante[0]}, ${coloreDomimante[1]}, ${coloreDomimante[2]}), black 50%)`;
       }
 
       const titoloAlbum = document.getElementById("titoloAlbum");
