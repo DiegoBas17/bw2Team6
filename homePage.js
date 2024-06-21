@@ -416,7 +416,7 @@ const playPauseIcons = document.querySelectorAll(".play-pause-icon");
 playPauseIcons.forEach((icon) => {
   icon.addEventListener("click", playPauseTrack);
 });
-/* parte per la scg search */
+/* parte per la svg search */ /* da riportare in tutte le altre pagine */
 document
   .getElementById("searchLink")
   .addEventListener("click", function (event) {

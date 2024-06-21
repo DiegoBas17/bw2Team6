@@ -240,3 +240,44 @@ footer img {
   opacity: 0.9;
 
 }
+/* parte per la scg search */
+
+.iconWrapperSearch {
+  position: relative;
+  width: 18px;
+  height: 18px;
+}
+
+.iconWrapperSearch .search-icon,
+.iconWrapperSearch .search-active-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 0.3s ease;
+}
+
+.iconWrapperSearch .search-active-icon {
+  opacity: 0;
+}
+
+.iconWrapperSearch.active .search-icon {
+  opacity: 0;
+}
+
+.iconWrapperSearch.active .search-active-icon {
+  opacity: 1;
+}
+#barraRicercaHome {
+  display: none;
+  
+}
+
+#barraRicercaHome.active {
+  display: inline-block;
+  
+} 
+@media screen and (max-width: 576px){
+  #barraRicercaHome input {
+    width: 88vw;
+  }
+}
