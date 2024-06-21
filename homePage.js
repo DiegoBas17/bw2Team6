@@ -1,5 +1,8 @@
 /* creo un array fittizio per generare un album random al caricamento della pagina */
-const albumAnnunci = [594581752, 228423362, 513551092, 551434412, 299319, 12047958, 11898198, 1312875, 81763, 81847];
+const albumAnnunci = [
+  594581752, 228423362, 513551092, 551434412, 299319, 12047958, 11898198,
+  1312875, 81763, 81847,
+];
 let currentArtistId = 0;
 /* funzione per ottenere un index random per usarlo nell'array */
 function randomIdAnnuncio() {
@@ -51,7 +54,9 @@ albumArtist.style.cursor = "pointer";
 albumArtist.addEventListener("click", () => {
   window.location.assign(`./Artistpage.html?id=${currentArtistId}`);
 });
-const buttonPlayAnnuncioHomePage = document.getElementById("buttonPlayAnnuncioHomePage");
+const buttonPlayAnnuncioHomePage = document.getElementById(
+  "buttonPlayAnnuncioHomePage"
+);
 buttonPlayAnnuncioHomePage.addEventListener("click", () => {
   window.location.assign(`./Albumpage.html?albumId=${currentRandomId}`);
 });
@@ -216,7 +221,9 @@ for (let i = 0; i < playlistArray2.length; i++) {
 }
 /* parte mobile */
 function creaPlaylistCardMobile(objPlaylist) {
-  const contenitoreCardsPlaylistMobile = document.getElementById("contenitoreCardsPlaylistMobile");
+  const contenitoreCardsPlaylistMobile = document.getElementById(
+    "contenitoreCardsPlaylistMobile"
+  );
 
   const cartaPlaylistMobile = document.createElement("div");
   cartaPlaylistMobile.classList.add("bg-dark", "my-3", "px-4", "py-3");
@@ -317,13 +324,17 @@ let tracks = [];
 
 async function fetchTracks() {
   try {
-    let response = await fetch("https://deezerdevs-deezer.p.rapidapi.com/search?q=eminem", {
-      method: "GET",
-      headers: {
-        "x-rapidapi-key": "488a8ebce0msh914112a61b3a6a1p19c0e4jsn3acc13a47a88",
-        "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
-      },
-    });
+    let response = await fetch(
+      "https://deezerdevs-deezer.p.rapidapi.com/search?q=eminem",
+      {
+        method: "GET",
+        headers: {
+          "x-rapidapi-key":
+            "488a8ebce0msh914112a61b3a6a1p19c0e4jsn3acc13a47a88",
+          "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
+        },
+      }
+    );
     let data = await response.json();
     tracks = data.data.map((track) => ({
       title: track.title,
@@ -339,8 +350,12 @@ async function fetchTracks() {
 
 function loadTrack(index) {
   audio.src = tracks[index].src;
-  document.querySelectorAll(".track-title").forEach((el) => (el.innerText = tracks[index].title));
-  document.querySelectorAll(".track-artist").forEach((el) => (el.innerText = tracks[index].artist));
+  document
+    .querySelectorAll(".track-title")
+    .forEach((el) => (el.innerText = tracks[index].title));
+  document
+    .querySelectorAll(".track-artist")
+    .forEach((el) => (el.innerText = tracks[index].artist));
   document.getElementById("album-art").src = tracks[index].albumArt;
   audio.load();
 }
@@ -358,13 +373,15 @@ function playPauseTrack() {
 }
 
 function prevTrack() {
-  currentTrackIndex = currentTrackIndex > 0 ? currentTrackIndex - 1 : tracks.length - 1;
+  currentTrackIndex =
+    currentTrackIndex > 0 ? currentTrackIndex - 1 : tracks.length - 1;
   loadTrack(currentTrackIndex);
   if (isPlaying) audio.play();
 }
 
 function nextTrack() {
-  currentTrackIndex = currentTrackIndex < tracks.length - 1 ? currentTrackIndex + 1 : 0;
+  currentTrackIndex =
+    currentTrackIndex < tracks.length - 1 ? currentTrackIndex + 1 : 0;
   loadTrack(currentTrackIndex);
   if (isPlaying) audio.play();
 }
@@ -374,8 +391,11 @@ document.getElementById("progress").addEventListener("input", function () {
 });
 
 audio.addEventListener("timeupdate", function () {
-  document.getElementById("progress").value = (audio.currentTime / audio.duration) * 100;
-  document.getElementById("current-time").innerText = formatTime(audio.currentTime);
+  document.getElementById("progress").value =
+    (audio.currentTime / audio.duration) * 100;
+  document.getElementById("current-time").innerText = formatTime(
+    audio.currentTime
+  );
   document.getElementById("duration").innerText = formatTime(audio.duration);
 });
 
@@ -398,53 +418,41 @@ playPauseIcons.forEach((icon) => {
 });
 
 /* parte per la svg search */ /* da riportare in tutte le altre pagine */
-document.getElementById("searchLink").addEventListener("click", function (event) {
-  event.preventDefault();
-  const barraRicercaHome = document.getElementById("barraRicercaHome");
-  barraRicercaHome.classList.toggle("active");
+document
+  .getElementById("searchLink")
+  .addEventListener("click", function (event) {
+    event.preventDefault();
+    const barraRicercaHome = document.getElementById("barraRicercaHome");
+    barraRicercaHome.classList.toggle("active");
 
-  const testoMobileCerca = document.getElementById("testoMobileCerca");
-  testoMobileCerca.classList.toggle("active");
+    const testoMobileCerca = document.getElementById("testoMobileCerca");
+    testoMobileCerca.classList.toggle("active");
 
-  const contenitoreMobileCerca = document.getElementById("contenitoreMobileCerca");
-  contenitoreMobileCerca.classList.toggle("active");
+    const contenitoreMobileCerca = document.getElementById(
+      "contenitoreMobileCerca"
+    );
+    contenitoreMobileCerca.classList.toggle("active");
 
-  const iconWrapper = document.querySelector(".iconWrapperSearch");
-  iconWrapper.classList.toggle("active");
-});
+    const iconWrapper = document.querySelector(".iconWrapperSearch");
+    iconWrapper.classList.toggle("active");
+  });
 
-document.getElementById("barraRicercaHomeInput").addEventListener("keydown", function (event) {
-  if (event.key === "Enter") {
-    const query = event.target.value;
-    if (query) {
-      searchInput(query);
-    }
-  }
-});
-function searchInput(objSearch) {
-  fetch(`https://striveschool-api.herokuapp.com/api/deezer/search?q=${objSearch}`, {
-    headers: {
-      "x-rapidapi-key": "488a8ebce0msh914112a61b3a6a1p19c0e4jsn3acc13a47a88",
-      "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
-    },
-  })
-    .then((resp) => {
-      if (resp.ok) {
-        return resp.json();
-      } else {
-        throw `Errore ${resp.status} : errore nella creazione dell'annuncio`;
+document
+  .getElementById("barraRicercaHomeInput")
+  .addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+      const query = event.target.value;
+      if (query) {
+        window.location.assign(`./search.html?id=${query}`);
       }
-    })
-    .then((objSearch) => {
-      console.log(objSearch);
-    })
-    .catch((err) => alert(err));
-}
+    }
+  });
 
 /* funzione per creare una lista dinamica */
 const navPlaylistArray = [
-  25, 50, 90, 2400, 8080, 2465, 26, 13, 656, 9357743, 543563, 266568, 2665, 2234998, 22349984, 13456, 1345756, 66654346,
-  52, 54, 55, 56, 58, 60, 75, 76, 91, 92, 93,
+  25, 50, 90, 2400, 8080, 2465, 26, 13, 656, 9357743, 543563, 266568, 2665,
+  2234998, 22349984, 13456, 1345756, 66654346, 52, 54, 55, 56, 58, 60, 75, 76,
+  91, 92, 93,
 ];
 const listaNavDinamica = document.getElementById("listaNavDinamica");
 
@@ -454,7 +462,7 @@ function creazioneListaDinamica(objPlaylist) {
 
   const a = document.createElement("a");
   a.classList.add("nav-link", "text-white");
-  a.href = `./searchAndPlaylist.html?idPlaylist=${objPlaylist}`;
+  a.href = `./searchAndPlaylist.html?idPlaylist=${objPlaylist.id}`;
   a.textContent = objPlaylist.title;
 
   li.appendChild(a);
@@ -485,8 +493,10 @@ function fetchPlaylists() {
 }
 fetchPlaylists();
 /* nascondi annuncio */
-document.getElementById("nascondiAnnuncio").addEventListener("click", function (event) {
-  event.preventDefault();
-  document.getElementById("heroAnnuncio").classList.remove("d-sm-block");
-  document.getElementById("heroAnnuncio").classList.add("d-none");
-});
+document
+  .getElementById("nascondiAnnuncio")
+  .addEventListener("click", function (event) {
+    event.preventDefault();
+    document.getElementById("heroAnnuncio").classList.remove("d-sm-block");
+    document.getElementById("heroAnnuncio").classList.add("d-none");
+  });
