@@ -196,6 +196,7 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 // Event listener per riproduzione
   document.getElementById('play-pause').addEventListener('click', playPauseTrack);
+  document.getElementById('play-pause-mobile').addEventListener('click', playPauseTrack);
   document.getElementById('prev-track').addEventListener('click', prevTrack);
   document.getElementById('next-track').addEventListener('click', nextTrack);
 });

@@ -802,8 +802,8 @@
               />
             </div>
             <div class="me-3">
-              <p class="m-0 track-title">Titolo</p>
-              <p class="m-0 track-artist">Artista</p>
+              <p class="m-0 track-title">In the end</p>
+              <p class="m-0 track-artist">Linkin Park</p>
             </div>
             <div id="bottone-salva-canzone">
               <button class="btn btn-transparent">
@@ -866,25 +866,20 @@
               </svg>
             </button>
 
-            <button
-              onclick="playPauseTrack()"
-              class="btn btn-light rounded-circle"
-            >
-              <svg
-                data-encore-id="icon"
-                role="img"
-                aria-hidden="true"
-                viewBox="0 0 16 16"
-                class="Svg-sc-ytk21e-0 dYnaPI d-flex justify-content-center align-items-center"
-                width="20px"
-                fill="currentColor"
-                id="play-pause"
-              >
-                <path
-                  d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288V1.713z"
-                ></path>
-              </svg>
-            </button>
+            <svg
+            
+            data-encore-id="icon"
+            role="img"
+            aria-hidden="true"
+            viewBox="0 0 16 16"
+            class="Svg-sc-ytk21e-0 dYnaPI d-flex justify-content-center align-items-center play-pause-icons"
+            width="25px"
+            height="25px"
+            fill="currentColor"
+            id="play-pause"
+        > <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814z" />
+      </svg>
+            
             <button class="btn btn-transparent p-0 mx-3" onclick="nextTrack()">
               <svg
                 data-encore-id="icon"
@@ -919,7 +914,7 @@
           <div class="d-flex flex-column justify-content-between">
             <div class="d-flex justify-content-between align-items-center">
               <p id="current-time" class="m-0 text-white">0:00</p>
-              <p id="duration" class="m-0 text-white">2:30</p>
+              <p id="duration" class="m-0 text-white">0:30</p>
             </div>
             <input id="progress" type="range" value="0" min="0" max="100" />
           </div>
