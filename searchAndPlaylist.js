@@ -1,8 +1,8 @@
 const params = new URLSearchParams(window.location.search);
-const albumId = params.get("albumId");
+const idPlaylist = params.get("idPlaylist");
 
 const URL =
-  "https://striveschool-api.herokuapp.com/api/deezer/album/" + albumId;
+  "https://striveschool-api.herokuapp.com/api/deezer/playlist/" + idPlaylist;
 
 function convertitoreDurationASecondi(duration) {
   const minuti = Math.floor(duration / 60);
@@ -44,8 +44,6 @@ window.addEventListener("DOMContentLoaded", () => {
       if (imgThief.complete) {
         const coloreDomimante = colorThief.getColor(imgThief);
         console.log(coloreDomimante);
-        const main = document.getElementsByTagName("main")[0];
-        main.style.backgroundImage = `linear-gradient(to bottom, rgb(${coloreDomimante[0]}, ${coloreDomimante[1]}, ${coloreDomimante[2]}), black 50%)`;
       }
 
       const titoloAlbum = document.getElementById("titoloAlbum");
@@ -373,9 +371,8 @@ function fetchPlaylists() {
           throw `Errore ${resp.status} : errore nella creazione dell'annuncio`;
         }
       })
-      .then((objAlbum) => {
-        console.log(objAlbum);
-        creazioneListaDinamica(objAlbum);
+      .then((objPlaylist) => {
+        creazioneListaDinamica(objPlaylist);
       })
       .catch((err) => alert(err));
   });

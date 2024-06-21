@@ -1,6 +1,7 @@
 /* creo un array fittizio per generare un album random al caricamento della pagina */
 const albumAnnunci = [
-  594581752, 228423362, 513551092, 382624, 551434412, 299319, 12047958,
+  594581752, 228423362, 513551092, 551434412, 299319, 12047958, 11898198,
+  1312875, 81763, 81847,
 ];
 let currentArtistId = 0;
 /* funzione per ottenere un index random per usarlo nell'array */
@@ -317,123 +318,107 @@ function creaPlaylistCardMobile(objPlaylist) {
 }
 
 window.addEventListener("DOMContentLoaded", idRandomAnnunciForFetch);
+let currentTrackIndex = 0;
+let isPlaying = false;
+let audio = new Audio();
+let tracks = [];
 
-/* footer */
-/* const tempoDiRiproduzione = document.getElementById("tempoDiRiproduzione");
-const progressBar = document.getElementById("progress-bar");
-const playButton = document.getElementById("playButtonMusic");
-let currentTime = 0;
-let maxTime = 30;
+async function fetchTracks() {
+  try {
+    let response = await fetch(
+      "https://deezerdevs-deezer.p.rapidapi.com/search?q=eminem",
+      {
+        method: "GET",
+        headers: {
+          "x-rapidapi-key":
+            "488a8ebce0msh914112a61b3a6a1p19c0e4jsn3acc13a47a88",
+          "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
+        },
+      }
+    );
+    let data = await response.json();
+    tracks = data.data.map((track) => ({
+      title: track.title,
+      artist: track.artist.name,
+      src: track.preview,
+      albumArt: track.album.cover_medium,
+    }));
+    loadTrack(currentTrackIndex);
+  } catch (error) {
+    console.error("Errore nel recupero delle tracce:", error);
+  }
+}
 
-playButton.addEventListener("click", function () {
-  currentTime = 0;
-  progressBar.style.width = "0%";
-  tempoDiRiproduzione.textContent = "0:00";
+function loadTrack(index) {
+  audio.src = tracks[index].src;
+  document
+    .querySelectorAll(".track-title")
+    .forEach((el) => (el.innerText = tracks[index].title));
+  document
+    .querySelectorAll(".track-artist")
+    .forEach((el) => (el.innerText = tracks[index].artist));
+  document.getElementById("album-art").src = tracks[index].albumArt;
+  audio.load();
+}
 
-  const interval = setInterval(() => {
-    currentTime++;
-    let percentage = (currentTime / maxTime) * 100;
-    progressBar.style.width = percentage + "%";
-    tempoDiRiproduzione.textContent = convertitoreDurationASecondi(currentTime);
+function playPauseTrack() {
+  if (isPlaying) {
+    audio.pause();
+    isPlaying = false;
+    document.getElementById("play-pause").src = "play-icon.png";
+  } else {
+    audio.play();
+    isPlaying = true;
+    document.getElementById("play-pause").src = "pause-icon.png";
+  }
+}
 
-    if (currentTime === maxTime) {
-      clearInterval(interval);
-    }
-  }, 1000);
+function prevTrack() {
+  currentTrackIndex =
+    currentTrackIndex > 0 ? currentTrackIndex - 1 : tracks.length - 1;
+  loadTrack(currentTrackIndex);
+  if (isPlaying) audio.play();
+}
+
+function nextTrack() {
+  currentTrackIndex =
+    currentTrackIndex < tracks.length - 1 ? currentTrackIndex + 1 : 0;
+  loadTrack(currentTrackIndex);
+  if (isPlaying) audio.play();
+}
+
+document.getElementById("progress").addEventListener("input", function () {
+  audio.currentTime = audio.duration * (this.value / 100);
 });
-function convertitoreDurationASecondi(duration) {
-  const minuti = Math.floor(duration / 60);
-  const secondi = duration % 60;
-  const tempo = minuti + ":" + (secondi < 10 ? "0" : "") + secondi;
-  return tempo;
-} */
-  let currentTrackIndex = 0;
-  let isPlaying = false;
-  let audio = new Audio();
-  let tracks = [];
-  
-  async function fetchTracks() {
-      try {
-          let response = await fetch('https://deezerdevs-deezer.p.rapidapi.com/search?q=eminem', {
-              method: 'GET',
-              headers: {
-                  'x-rapidapi-key': '488a8ebce0msh914112a61b3a6a1p19c0e4jsn3acc13a47a88',
-                  'x-rapidapi-host': 'deezerdevs-deezer.p.rapidapi.com'
-              }
-          });
-          let data = await response.json();
-          tracks = data.data.map(track => ({
-              title: track.title,
-              artist: track.artist.name,
-              src: track.preview,
-              albumArt: track.album.cover_medium
-          }));
-          loadTrack(currentTrackIndex);
-      } catch (error) {
-          console.error('Errore nel recupero delle tracce:', error);
-      }
-  }
-  
-  function loadTrack(index) {
-      audio.src = tracks[index].src;
-      document.querySelectorAll('.track-title').forEach(el => el.innerText = tracks[index].title);
-      document.querySelectorAll('.track-artist').forEach(el => el.innerText = tracks[index].artist);
-      document.getElementById('album-art').src = tracks[index].albumArt;
-      audio.load();
-  }
-  
-  function playPauseTrack() {
-      if (isPlaying) {
-          audio.pause();
-          isPlaying = false;
-          document.getElementById('play-pause').src = 'play-icon.png';
-      } else {
-          audio.play();
-          isPlaying = true;
-          document.getElementById('play-pause').src = 'pause-icon.png';
-      }
-  }
-  
-  function prevTrack() {
-      currentTrackIndex = (currentTrackIndex > 0) ? currentTrackIndex - 1 : tracks.length - 1;
-      loadTrack(currentTrackIndex);
-      if (isPlaying) audio.play();
-  }
-  
-  function nextTrack() {
-      currentTrackIndex = (currentTrackIndex < tracks.length - 1) ? currentTrackIndex + 1 : 0;
-      loadTrack(currentTrackIndex);
-      if (isPlaying) audio.play();
-  }
-  
-  document.getElementById('progress').addEventListener('input', function() {
-      audio.currentTime = audio.duration * (this.value / 100);
-  });
-  
-  audio.addEventListener('timeupdate', function() {
-      document.getElementById('progress').value = (audio.currentTime / audio.duration) * 100;
-      document.getElementById('current-time').innerText = formatTime(audio.currentTime);
-      document.getElementById('duration').innerText = formatTime(audio.duration);
-  });
-  
-  document.getElementById('volume').addEventListener('input', function() {
-      audio.volume = this.value;
-  });
-  
-  function formatTime(seconds) {
-      const minutes = Math.floor(seconds / 60);
-      const sec = Math.floor(seconds % 60);
-      return `${minutes}:${sec < 10 ? '0' : ''}${sec}`;
-  }
-  
-  // Caricare le tracce all'avvio
-  fetchTracks();
-  
-  const playPauseIcons = document.querySelectorAll('.play-pause-icon');
-  playPauseIcons.forEach(icon => {
-      icon.addEventListener('click', playPauseTrack);
-  });
-/* parte per la scg search */
+
+audio.addEventListener("timeupdate", function () {
+  document.getElementById("progress").value =
+    (audio.currentTime / audio.duration) * 100;
+  document.getElementById("current-time").innerText = formatTime(
+    audio.currentTime
+  );
+  document.getElementById("duration").innerText = formatTime(audio.duration);
+});
+
+document.getElementById("volume").addEventListener("input", function () {
+  audio.volume = this.value;
+});
+
+function formatTime(seconds) {
+  const minutes = Math.floor(seconds / 60);
+  const sec = Math.floor(seconds % 60);
+  return `${minutes}:${sec < 10 ? "0" : ""}${sec}`;
+}
+
+// Caricare le tracce all'avvio
+fetchTracks();
+
+const playPauseIcons = document.querySelectorAll(".play-pause-icon");
+playPauseIcons.forEach((icon) => {
+  icon.addEventListener("click", playPauseTrack);
+});
+
+/* parte per la svg search */ /* da riportare in tutte le altre pagine */
 document
   .getElementById("searchLink")
   .addEventListener("click", function (event) {
@@ -485,3 +470,56 @@ function searchInput(objSearch) {
     })
     .catch((err) => alert(err));
 }
+
+/* funzione per creare una lista dinamica */
+const navPlaylistArray = [
+  25, 50, 90, 2400, 8080, 2465, 26, 13, 656, 9357743, 543563, 266568, 2665,
+  2234998, 22349984, 13456, 1345756, 66654346, 52, 54, 55, 56, 58, 60, 75, 76,
+  91, 92, 93,
+];
+const listaNavDinamica = document.getElementById("listaNavDinamica");
+
+function creazioneListaDinamica(objPlaylist) {
+  const li = document.createElement("li");
+  li.classList.add("nav-item");
+
+  const a = document.createElement("a");
+  a.classList.add("nav-link", "text-white");
+  a.href = `./searchAndPlaylist.html?idPlaylist=${objPlaylist}`;
+  a.textContent = objPlaylist.title;
+
+  li.appendChild(a);
+  listaNavDinamica.appendChild(li);
+}
+
+function fetchPlaylists() {
+  navPlaylistArray.forEach((idPlaylist) => {
+    fetch(`https://deezerdevs-deezer.p.rapidapi.com/playlist/${idPlaylist}`, {
+      headers: {
+        "x-rapidapi-key": "488a8ebce0msh914112a61b3a6a1p19c0e4jsn3acc13a47a88",
+        "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
+      },
+    })
+      .then((resp) => {
+        if (resp.ok) {
+          return resp.json();
+        } else {
+          throw `Errore ${resp.status} : errore nella creazione dell'annuncio`;
+        }
+      })
+      .then((objPlaylist) => {
+        console.log(objPlaylist);
+        creazioneListaDinamica(objPlaylist);
+      })
+      .catch((err) => alert(err));
+  });
+}
+fetchPlaylists();
+/* nascondi annuncio */
+document
+  .getElementById("nascondiAnnuncio")
+  .addEventListener("click", function (event) {
+    event.preventDefault();
+    document.getElementById("heroAnnuncio").classList.remove("d-sm-block");
+    document.getElementById("heroAnnuncio").classList.add("d-none");
+  });
