@@ -140,6 +140,11 @@ window.addEventListener("DOMContentLoaded", () => {
 
           const nomeBrano = document.getElementById("track-title");
           nomeBrano.innerText = song.title;
+          const nomeBrano1 = document.getElementById("track-title-mobile");
+          nomeBrano1.innerText = song.title;
+          const nomeArtista1 = document.getElementById("track-artist-mobile");
+          nomeArtista1.innerText = song.artist.name;
+
 
           const nomeArtista = document.getElementById("track-artist");
           nomeArtista.innerText = song.artist.name;
@@ -198,13 +203,20 @@ window.addEventListener("DOMContentLoaded", () => {
     })
     .catch((err) => console.log(err));
 
-  const playButton = document.getElementById("playButtonVerde");
-  playButton.addEventListener("click", riproduzioneAlbum);
-
+    const playButton = document.getElementById("playButtonVerde");
+    playButton.addEventListener("click", () => {
+      riproduzioneAlbum();
+    });
   //********************PLAYER DEFAULT********************** */
 
-  let audio = document.getElementById("audioPlayer");
+  const audio = document.getElementById("audioPlayer");
   const buttonPlayerPlayPause = document.getElementById("play-pause");
+  const buttonPlayerPlayPause1 = document.getElementById("play-pause-mobile");
+  const playIcon = document.getElementById("play-icon");
+  const pauseIcon = document.getElementById("pause-icon");
+  document.getElementById('volume').addEventListener('input', function() {
+    audio.volume = this.value;
+  });
 
   function formatTime(seconds) {
     const minutes = Math.floor(seconds / 60);
@@ -214,14 +226,17 @@ window.addEventListener("DOMContentLoaded", () => {
   function togglePlayPause() {
     if (audio.paused) {
       audio.play();
-      button.textContent = "Pause";
+      playIcon.classList.add("d-none");
+      pauseIcon.classList.remove("d-none");
     } else {
       audio.pause();
-      button.textContent = "Play";
+      playIcon.classList.remove("d-none");
+      pauseIcon.classList.add("d-none");
     }
   }
 
   buttonPlayerPlayPause.addEventListener("click", togglePlayPause);
+  buttonPlayerPlayPause1.addEventListener("click", togglePlayPause);
 
   /* parte per la svg search */ /* da riportare in tutte le altre pagine */
   document.getElementById("searchLink").addEventListener("click", function (event) {
@@ -274,7 +289,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     const a = document.createElement("a");
     a.classList.add("nav-link", "text-white");
-    a.href = `./playlist.html?idPlaylist=${objPlaylist.id}`;
+    a.href = "#";
     a.textContent = objPlaylist.title;
 
     li.appendChild(a);
@@ -304,22 +319,4 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   }
   fetchPlaylists();
-
-  document.getElementById("searchLink").addEventListener("click", function (event) {
-    event.preventDefault();
-    const barraRicercaHome = document.getElementById("barraRicercaHome");
-    barraRicercaHome.classList.toggle("active");
-
-    const iconWrapper = document.querySelector(".iconWrapperSearch");
-    iconWrapper.classList.toggle("active");
-  });
-
-  document.getElementById("barraRicercaHomeInput").addEventListener("keydown", function (event) {
-    if (event.key === "Enter") {
-      const query = event.target.value;
-      if (query) {
-        window.location.assign(`./search.html?id=${query}`);
-      }
-    }
-  });
 });
