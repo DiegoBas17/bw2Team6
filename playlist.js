@@ -204,7 +204,7 @@ window.addEventListener("DOMContentLoaded", () => {
   //********************PLAYER DEFAULT********************** */
 
   let audio = document.getElementById("audioPlayer");
-  const buttonPlayerPlayPause = document.getElementById("buttonPlayerPlayPause");
+  const buttonPlayerPlayPause = document.getElementById("play-pause");
 
   function formatTime(seconds) {
     const minutes = Math.floor(seconds / 60);
