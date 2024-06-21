@@ -246,8 +246,6 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 //////////
- 
-  
 
 /* parte per la svg search */ /* da riportare in tutte le altre pagine */
 document
@@ -271,28 +269,16 @@ document
       }
     }
   });
-function searchInput(objSearch) {
-  fetch(
-    `https://striveschool-api.herokuapp.com/api/deezer/search?q=${objSearch}`,
-    {
-      headers: {
-        "x-rapidapi-key": "488a8ebce0msh914112a61b3a6a1p19c0e4jsn3acc13a47a88",
-        "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
-      },
-    }
-  )
-    .then((resp) => {
-      if (resp.ok) {
-        return resp.json();
-      } else {
-        throw `Errore ${resp.status} : errore nella creazione dell'annuncio`;
+document
+  .getElementById("barraRicercaHomeInput")
+  .addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+      const query = event.target.value;
+      if (query) {
+        window.location.assign(`./search.html?id=${query}`);
       }
-    })
-    .then((objSearch) => {
-      console.log(objSearch);
-    })
-    .catch((err) => alert(err));
-}
+    }
+  });
 
 /* funzione per creare una lista dinamica */
 const navPlaylistArray = [
