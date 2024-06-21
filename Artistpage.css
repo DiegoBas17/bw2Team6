@@ -102,7 +102,7 @@ ul {
   background-position: center;
 }
 .contens-inside {
-  margin-top: 35%;
+  margin-top: 70%;
 }
 #braniLikes {
   border-radius: 50%;
@@ -142,7 +142,16 @@ ul {
 #colonnaCentrale {
   background: linear-gradient(195deg, rgba(32, 32, 32, 1) 45%, rgba(0, 0, 0, 1) 96%);
 }
-
+@media (max-width:576px){
+  .contens-inside h1{
+    margin-top: 150%;
+  }
+  }
+@media (min-width:767.98px)and(max-width:890px){
+  .contens-inside {
+    margin-top: 80% !important;
+  }
+}
 @media (max-width: 767.98px) {
   .navbar-bottom {
     position: fixed;
@@ -219,7 +228,9 @@ background: linear-gradient(180deg, rgba(255,255,255,0.14329481792717091) 59%, r
   .li-container {
     position: relative;
   }
-  
+  .contens-inside {
+    margin-top: 100%;
+  }
 }
 
 /* Stili per il player  */
@@ -239,4 +250,20 @@ footer img {
   border: solid 0.5px rgb(92, 92, 92);
   opacity: 0.9;
 
+}
+#container{
+  min-height: 600px; 
+ 
+}
+#trackList {
+  font-family: 'Arial', sans-serif; 
+}
+
+
+#trackList li {
+  font-size: 17px; 
+  
+}
+.bi-pause-circle-fill{
+  cursor:pointer
 }
