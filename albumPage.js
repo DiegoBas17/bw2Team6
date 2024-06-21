@@ -36,7 +36,7 @@ window.addEventListener("DOMContentLoaded", () => {
       //inserisco dati dell'album dinamicamente nel banner in alto
       const coverAlbum = document.getElementById("coverAlbum");
       coverAlbum.src = album.cover_medium;
-      coverAlbum.crossOrigin = "Anonymous"; 
+      coverAlbum.crossOrigin = "Anonymous";
 
       /* funzione per creare il nostro background */
       const imgThief = coverAlbum;
@@ -289,3 +289,92 @@ window.addEventListener("DOMContentLoaded", () => {
 
   buttonPlayerPlayPause.addEventListener("click", togglePlayPause);
 });
+
+/* parte per la svg search */ /* da riportare in tutte le altre pagine */
+document
+  .getElementById("searchLink")
+  .addEventListener("click", function (event) {
+    event.preventDefault();
+    const barraRicercaHome = document.getElementById("barraRicercaHome");
+    barraRicercaHome.classList.toggle("active");
+
+    const iconWrapper = document.querySelector(".iconWrapperSearch");
+    iconWrapper.classList.toggle("active");
+  });
+
+document
+  .getElementById("barraRicercaHomeInput")
+  .addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+      const query = event.target.value;
+      if (query) {
+        searchInput(query);
+      }
+    }
+  });
+function searchInput(objSearch) {
+  fetch(
+    `https://striveschool-api.herokuapp.com/api/deezer/search?q=${objSearch}`,
+    {
+      headers: {
+        "x-rapidapi-key": "488a8ebce0msh914112a61b3a6a1p19c0e4jsn3acc13a47a88",
+        "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
+      },
+    }
+  )
+    .then((resp) => {
+      if (resp.ok) {
+        return resp.json();
+      } else {
+        throw `Errore ${resp.status} : errore nella creazione dell'annuncio`;
+      }
+    })
+    .then((objSearch) => {
+      console.log(objSearch);
+    })
+    .catch((err) => alert(err));
+}
+
+/* funzione per creare una lista dinamica */
+const navPlaylistArray = [
+  25, 50, 90, 2400, 8080, 2465, 26, 13, 656, 9357743, 543563, 266568, 2665,
+  2234998, 22349984, 13456, 1345756, 66654346, 52, 54, 55, 56, 58, 60,
+];
+const listaNavDinamica = document.getElementById("listaNavDinamica");
+
+function creazioneListaDinamica(objPlaylist) {
+  const li = document.createElement("li");
+  li.classList.add("nav-item");
+
+  const a = document.createElement("a");
+  a.classList.add("nav-link", "text-white");
+  a.href = "#";
+  a.textContent = objPlaylist.title;
+
+  li.appendChild(a);
+  listaNavDinamica.appendChild(li);
+}
+
+function fetchPlaylists() {
+  navPlaylistArray.forEach((idAlbums) => {
+    fetch(`https://deezerdevs-deezer.p.rapidapi.com/playlist/${idAlbums}`, {
+      headers: {
+        "x-rapidapi-key": "488a8ebce0msh914112a61b3a6a1p19c0e4jsn3acc13a47a88",
+        "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
+      },
+    })
+      .then((resp) => {
+        if (resp.ok) {
+          return resp.json();
+        } else {
+          throw `Errore ${resp.status} : errore nella creazione dell'annuncio`;
+        }
+      })
+      .then((objAlbum) => {
+        console.log(objAlbum);
+        creazioneListaDinamica(objAlbum);
+      })
+      .catch((err) => alert(err));
+  });
+}
+fetchPlaylists();
