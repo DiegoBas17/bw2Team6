@@ -1,5 +1,8 @@
 /* creo un array fittizio per generare un album random al caricamento della pagina */
-const albumAnnunci = [594581752, 228423362, 513551092, 551434412, 299319, 12047958, 11898198, 1312875, 81763, 81847];
+const albumAnnunci = [
+  594581752, 228423362, 513551092, 551434412, 299319, 12047958, 11898198,
+  1312875, 81763, 81847,
+];
 let currentArtistId = 0;
 /* funzione per ottenere un index random per usarlo nell'array */
 function randomIdAnnuncio() {
@@ -51,7 +54,9 @@ albumArtist.style.cursor = "pointer";
 albumArtist.addEventListener("click", () => {
   window.location.assign(`./Artistpage.html?id=${currentArtistId}`);
 });
-const buttonPlayAnnuncioHomePage = document.getElementById("buttonPlayAnnuncioHomePage");
+const buttonPlayAnnuncioHomePage = document.getElementById(
+  "buttonPlayAnnuncioHomePage"
+);
 buttonPlayAnnuncioHomePage.addEventListener("click", () => {
   window.location.assign(`./Albumpage.html?albumId=${currentRandomId}`);
 });
@@ -217,7 +222,9 @@ for (let i = 0; i < playlistArray2.length; i++) {
 }
 /* parte mobile */
 function creaPlaylistCardMobile(objPlaylist) {
-  const contenitoreCardsPlaylistMobile = document.getElementById("contenitoreCardsPlaylistMobile");
+  const contenitoreCardsPlaylistMobile = document.getElementById(
+    "contenitoreCardsPlaylistMobile"
+  );
 
   const cartaPlaylistMobile = document.createElement("div");
   cartaPlaylistMobile.classList.add("bg-dark", "my-3", "px-4", "py-3");
@@ -340,36 +347,48 @@ async function fetchTracks() {
 
 function loadTrack(index) {
   audio.src = tracks[index].src;
-  document.querySelectorAll(".track-title").forEach((el) => (el.innerText = tracks[index].title));
-  document.querySelectorAll(".track-artist").forEach((el) => (el.innerText = tracks[index].artist));
+  document
+    .querySelectorAll(".track-title")
+    .forEach((el) => (el.innerText = tracks[index].title));
+  document
+    .querySelectorAll(".track-artist")
+    .forEach((el) => (el.innerText = tracks[index].artist));
   document.getElementById("album-art").src = tracks[index].albumArt;
   audio.load();
 }
 
 function playPauseTrack() {
- let icon = document.getElementById('play-icon');
-  
+  let icon = document.getElementById("play-icon");
+
   if (isPlaying) {
-      audio.pause();
-      isPlaying = false;
-      // Cambia l'icona a play
-      icon.setAttribute('d', 'M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814z');
+    audio.pause();
+    isPlaying = false;
+    // Cambia l'icona a play
+    icon.setAttribute(
+      "d",
+      "M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814z"
+    );
   } else {
-      audio.play();
-      isPlaying = true;
-      // Cambia l'icona a pausa
-      icon.setAttribute('d', 'M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.25 5C5.56 5 5 5.56 5 6.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C7.5 5.56 6.94 5 6.25 5m3.5 0c-.69 0-1.25.56-1.25 1.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C11 5.56 10.44 5 9.75 5"');
+    audio.play();
+    isPlaying = true;
+    // Cambia l'icona a pausa
+    icon.setAttribute(
+      "d",
+      'M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.25 5C5.56 5 5 5.56 5 6.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C7.5 5.56 6.94 5 6.25 5m3.5 0c-.69 0-1.25.56-1.25 1.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C11 5.56 10.44 5 9.75 5"'
+    );
   }
 }
 
 function prevTrack() {
-  currentTrackIndex = currentTrackIndex > 0 ? currentTrackIndex - 1 : tracks.length - 1;
+  currentTrackIndex =
+    currentTrackIndex > 0 ? currentTrackIndex - 1 : tracks.length - 1;
   loadTrack(currentTrackIndex);
   if (isPlaying) audio.play();
 }
 
 function nextTrack() {
-  currentTrackIndex = currentTrackIndex < tracks.length - 1 ? currentTrackIndex + 1 : 0;
+  currentTrackIndex =
+    currentTrackIndex < tracks.length - 1 ? currentTrackIndex + 1 : 0;
   loadTrack(currentTrackIndex);
   if (isPlaying) audio.play();
 }
@@ -380,12 +399,11 @@ document.getElementById("progress").addEventListener("input", function () {
 
 audio.addEventListener("timeupdate", function () {
   if (isPlaying) {
-    document.getElementById('progress').value = (audio.currentTime / audio.duration) * 100;
-    document.getElementById('current-time').innerText = formatTime(audio.currentTime);
-    document.getElementById('duration').innerText = "0:30"; /* formatTime(audio.duration); */
+    document.getElementById("progress").value = (audio.currentTime / audio.duration) * 100;
+    document.getElementById("current-time").innerText = formatTime(audio.currentTime);
+    document.getElementById("duration").innerText = "0:30"; /* formatTime(audio.duration); */
   }
 });
-
 
 document.getElementById("volume").addEventListener("input", function () {
   audio.volume = this.value;
@@ -406,20 +424,24 @@ playPauseIcons.forEach((icon) => {
 });
 
 /* parte per la svg search */ /* da riportare in tutte le altre pagine */
-document.getElementById("searchLink").addEventListener("click", function (event) {
-  event.preventDefault();
-  const barraRicercaHome = document.getElementById("barraRicercaHome");
-  barraRicercaHome.classList.toggle("active");
+document
+  .getElementById("searchLink")
+  .addEventListener("click", function (event) {
+    event.preventDefault();
+    const barraRicercaHome = document.getElementById("barraRicercaHome");
+    barraRicercaHome.classList.toggle("active");
 
-  const testoMobileCerca = document.getElementById("testoMobileCerca");
-  testoMobileCerca.classList.toggle("active");
+    const testoMobileCerca = document.getElementById("testoMobileCerca");
+    testoMobileCerca.classList.toggle("active");
 
-  const contenitoreMobileCerca = document.getElementById("contenitoreMobileCerca");
-  contenitoreMobileCerca.classList.toggle("active");
+    const contenitoreMobileCerca = document.getElementById(
+      "contenitoreMobileCerca"
+    );
+    contenitoreMobileCerca.classList.toggle("active");
 
-  const iconWrapper = document.querySelector(".iconWrapperSearch");
-  iconWrapper.classList.toggle("active");
-});
+    const iconWrapper = document.querySelector(".iconWrapperSearch");
+    iconWrapper.classList.toggle("active");
+  });
 
 document.getElementById("barraRicercaHomeInput").addEventListener("keydown", function (event) {
   if (event.key === "Enter") {
@@ -429,30 +451,12 @@ document.getElementById("barraRicercaHomeInput").addEventListener("keydown", fun
     }
   }
 });
-function searchInput(objSearch) {
-  fetch(`https://striveschool-api.herokuapp.com/api/deezer/search?q=${objSearch}`, {
-    headers: {
-      "x-rapidapi-key": "29c0a4f314mshac4cba9bf78ad4cp17ff1cjsn5a53e9406430",
-      "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
-    },
-  })
-    .then((resp) => {
-      if (resp.ok) {
-        return resp.json();
-      } else {
-        throw `Errore ${resp.status} : errore nella creazione dell'annuncio`;
-      }
-    })
-    .then((objSearch) => {
-      console.log(objSearch);
-    })
-    .catch((err) => alert(err));
-}
 
 /* funzione per creare una lista dinamica */
 const navPlaylistArray = [
-  25, 50, 90, 2400, 8080, 2465, 26, 13, 656, 9357743, 543563, 266568, 2665, 2234998, 22349984, 13456, 1345756, 66654346,
-  52, 54, 55, 56, 58, 60, 75, 76, 91, 92, 93,
+  25, 50, 90, 2400, 8080, 2465, 26, 13, 656, 9357743, 543563, 266568, 2665,
+  2234998, 22349984, 13456, 1345756, 66654346, 52, 54, 55, 56, 58, 60, 75, 76,
+  91, 92, 93,
 ];
 const listaNavDinamica = document.getElementById("listaNavDinamica");
 
@@ -462,7 +466,7 @@ function creazioneListaDinamica(objPlaylist) {
 
   const a = document.createElement("a");
   a.classList.add("nav-link", "text-white");
-  a.href = `./searchAndPlaylist.html?idPlaylist=${objPlaylist.id}`;
+  a.href = `./playlist.html?idPlaylist=${objPlaylist.id}`;
   a.textContent = objPlaylist.title;
 
   li.appendChild(a);
@@ -493,8 +497,10 @@ function fetchPlaylists() {
 }
 fetchPlaylists();
 /* nascondi annuncio */
-document.getElementById("nascondiAnnuncio").addEventListener("click", function (event) {
-  event.preventDefault();
-  document.getElementById("heroAnnuncio").classList.remove("d-sm-block");
-  document.getElementById("heroAnnuncio").classList.add("d-none");
-});
+document
+  .getElementById("nascondiAnnuncio")
+  .addEventListener("click", function (event) {
+    event.preventDefault();
+    document.getElementById("heroAnnuncio").classList.remove("d-sm-block");
+    document.getElementById("heroAnnuncio").classList.add("d-none");
+  });

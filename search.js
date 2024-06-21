@@ -267,7 +267,7 @@ buttonPlayerPlayPause1.addEventListener("click", togglePlayPause);
 
     const a = document.createElement("a");
     a.classList.add("nav-link", "text-white");
-    a.href = "#";
+    a.href = `./playlist.html?idPlaylist=${objPlaylist.id}`;
     a.textContent = objPlaylist.title;
 
     li.appendChild(a);
