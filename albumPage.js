@@ -54,7 +54,7 @@ window.addEventListener("DOMContentLoaded", () => {
       if (imgThief.complete) {
         setColorThiefBackground();
       } else {
-        imgThief.addEventListener("load", setBackground);
+        imgThief.addEventListener("load", setColorThiefBackground);
       }
 
       const titoloAlbum = document.getElementById("titoloAlbum");
@@ -314,30 +314,38 @@ window.addEventListener("DOMContentLoaded", () => {
   buttonPlayerPlayPause1.addEventListener("click", togglePlayPause);
 
   /* parte per la svg search */ /* da riportare in tutte le altre pagine */
-  document.getElementById("searchLink").addEventListener("click", function (event) {
-    event.preventDefault();
-    const barraRicercaHome = document.getElementById("barraRicercaHome");
-    barraRicercaHome.classList.toggle("active");
+  document
+    .getElementById("searchLink")
+    .addEventListener("click", function (event) {
+      event.preventDefault();
+      const barraRicercaHome = document.getElementById("barraRicercaHome");
+      barraRicercaHome.classList.toggle("active");
 
-    const iconWrapper = document.querySelector(".iconWrapperSearch");
-    iconWrapper.classList.toggle("active");
-  });
+      const iconWrapper = document.querySelector(".iconWrapperSearch");
+      iconWrapper.classList.toggle("active");
+    });
 
-  document.getElementById("barraRicercaHomeInput").addEventListener("keydown", function (event) {
-    if (event.key === "Enter") {
-      const query = event.target.value;
-      if (query) {
-        searchInput(query);
+  document
+    .getElementById("barraRicercaHomeInput")
+    .addEventListener("keydown", function (event) {
+      if (event.key === "Enter") {
+        const query = event.target.value;
+        if (query) {
+          searchInput(query);
+        }
       }
-    }
-  });
+    });
   function searchInput(objSearch) {
-    fetch(`https://striveschool-api.herokuapp.com/api/deezer/search?q=${objSearch}`, {
-      headers: {
-        "x-rapidapi-key": "488a8ebce0msh914112a61b3a6a1p19c0e4jsn3acc13a47a88",
-        "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
-      },
-    })
+    fetch(
+      `https://striveschool-api.herokuapp.com/api/deezer/search?q=${objSearch}`,
+      {
+        headers: {
+          "x-rapidapi-key":
+            "488a8ebce0msh914112a61b3a6a1p19c0e4jsn3acc13a47a88",
+          "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
+        },
+      }
+    )
       .then((resp) => {
         if (resp.ok) {
           return resp.json();
@@ -353,8 +361,9 @@ window.addEventListener("DOMContentLoaded", () => {
 
   /* funzione per creare una lista dinamica */
   const navPlaylistArray = [
-    25, 50, 90, 2400, 8080, 2465, 26, 13, 656, 9357743, 543563, 266568, 2665, 2234998, 22349984, 13456, 1345756,
-    66654346, 52, 54, 55, 56, 58, 60, 75, 76, 91, 92, 93,
+    25, 50, 90, 2400, 8080, 2465, 26, 13, 656, 9357743, 543563, 266568, 2665,
+    2234998, 22349984, 13456, 1345756, 66654346, 52, 54, 55, 56, 58, 60, 75, 76,
+    91, 92, 93,
   ];
   const listaNavDinamica = document.getElementById("listaNavDinamica");
 
@@ -375,7 +384,8 @@ window.addEventListener("DOMContentLoaded", () => {
     navPlaylistArray.forEach((idAlbums) => {
       fetch(`https://deezerdevs-deezer.p.rapidapi.com/playlist/${idAlbums}`, {
         headers: {
-          "x-rapidapi-key": "488a8ebce0msh914112a61b3a6a1p19c0e4jsn3acc13a47a88",
+          "x-rapidapi-key":
+            "488a8ebce0msh914112a61b3a6a1p19c0e4jsn3acc13a47a88",
           "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
         },
       })
