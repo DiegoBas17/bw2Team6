@@ -213,8 +213,7 @@ buttonPlayerPlayPause1.addEventListener("click", togglePlayPause);
 });
 
 //////////
-  buttonPlayerPlayPause.addEventListener("click", togglePlayPause);
-  buttonPlayerPlayPause1.addEventListener("click", togglePlayPause);
+ 
   
 
   /* parte per la svg search */ /* da riportare in tutte le altre pagine */
