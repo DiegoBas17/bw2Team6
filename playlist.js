@@ -112,7 +112,7 @@ window.addEventListener("DOMContentLoaded", () => {
       const durataAlbum = document.getElementById("DurataAlbum");
       durataAlbum.innerText = formatTime(playlist.duration);
 
-      //ora devo generare le row che conterranno all'interno i brani presenti nell'album
+      //ora devo generare le row che conterranno all'interno i brani presenti nella playlist
 
       const braniContainer = document.getElementById("contenitoreBrani");
       let i = 0;
